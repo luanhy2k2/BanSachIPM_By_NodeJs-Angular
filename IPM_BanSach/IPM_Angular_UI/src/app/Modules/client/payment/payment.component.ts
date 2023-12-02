@@ -23,7 +23,7 @@ export class PaymentComponent {
           quantity:"",
           gia:""
       }
-  ],
+  ], 
   total:0
   }
   products! :any[]

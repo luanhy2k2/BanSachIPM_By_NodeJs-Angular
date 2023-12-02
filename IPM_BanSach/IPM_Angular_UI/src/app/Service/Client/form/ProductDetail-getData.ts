@@ -11,10 +11,10 @@ import { productDetail } from "src/app/Models/productDetail.entity";
 export class ProductDetailService{
     constructor(private httpClient: HttpClient){}
     getProductById(id:any):Observable<productDetail>{
-        return this.httpClient.get<productDetail>(`https://localhost:44301/api/productDetail/productDetail/${id}`)
+        return this.httpClient.get<productDetail>(`http://localhost:3000/api/home/getspbyid/${id}`)
     }
     getProductSameAuthor(id:any):Observable<product[]>{
-        return this.httpClient.get<product[]>(`https://localhost:44301/api/productDetail/productSameAuthor/${id}`)
+        return this.httpClient.get<product[]>(`http://localhost:3000/api/home/getbytg/${id}/4`)
     }
     getCommentProduct(id:any):Observable<commentProduct[]>{
         return this.httpClient.get<commentProduct[]>(`https://localhost:44301/api/productDetail/getCommentBySanpId/${id}`)

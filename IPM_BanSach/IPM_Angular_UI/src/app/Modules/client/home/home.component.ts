@@ -10,24 +10,24 @@ const url = 'https://localhost:44301/api/Home/banChay/10';
 export class HomeComponent {
   constructor(private homeService: HomeGetDataService){}
   products: product[] = [];
-  quantityProduct:number = 0;
+  quantityProduct:number = 8;
   
   ngOnInit() {
-    this.loadProductData('banChay');
+    this.loadProductData('getbanchay');
   }
 
   sanPhamMoi() {
-    this.loadProductData('sanPhamMoi');
+    this.loadProductData('getsanphammoi');
   }
 
   sanPhamBanChay() {
-    this.loadProductData('banChay');
+    this.loadProductData('getbanchay');
   }
   sanPhamHuyenAo() {
-    this.loadProductByCategory(3);
+    this.loadProductByCategory(1);
   }
   sanPhamTinhCam() {
-    this.loadProductByCategory(2);
+    this.loadProductByCategory(4);
   }
   showMoreProduct() {
     this.quantityProduct++;
@@ -36,7 +36,7 @@ export class HomeComponent {
   }
   private loadProductData(criteria?: string) {
     // Default to 'banChay' if no criteria is provided
-    criteria = criteria || 'banChay';
+    criteria = criteria || 'getbanchay';
     this.homeService.getProductData(criteria, this.quantityProduct).subscribe(res => {
       this.products = res;
     });

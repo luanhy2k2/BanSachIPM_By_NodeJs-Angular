@@ -1,4 +1,4 @@
 export interface loaisp{
-    loaiId: any,
-    loaiName:any
+    loai_id: any,
+    loai_name:any
 }

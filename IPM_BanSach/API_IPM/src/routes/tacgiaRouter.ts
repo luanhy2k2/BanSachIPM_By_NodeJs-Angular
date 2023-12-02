@@ -1,0 +1,11 @@
+import {  Router } from "express";
+import { container } from "tsyringe";
+import { TacgiaController } from "../controllers/tacgiaController";
+const TacgiaRouter = Router();
+const ctr = container.resolve(TacgiaController);
+TacgiaRouter.get('/getbyid/:id', ctr.GetTacgiaById.bind(ctr) );
+TacgiaRouter.get('/getall', ctr.GetAllTacgia.bind(ctr));
+TacgiaRouter.post('/create', ctr.CreateTacgia.bind(ctr));
+TacgiaRouter.post('/update', ctr.UpdateTacgia.bind(ctr));
+TacgiaRouter.delete('/delete/:id', ctr.DeleteTacgia.bind(ctr));
+export default TacgiaRouter;

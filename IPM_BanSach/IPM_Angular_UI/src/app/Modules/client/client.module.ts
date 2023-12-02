@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations:[
@@ -24,6 +25,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     imports:[
       ClientRoutingModule,
       CommonModule,
+      HttpClientModule,
       FormsModule
     ]
 })

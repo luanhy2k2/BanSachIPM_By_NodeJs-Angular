@@ -15,7 +15,6 @@ import { AdminRoutingModule } from './Modules/Admin/admin-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-  
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,6 @@ import { AdminRoutingModule } from './Modules/Admin/admin-routing.module';
     ClientRoutingModule,
     AdminModule,
     AdminRoutingModule
-   
   ],
   providers: [],
   bootstrap: [AppComponent]

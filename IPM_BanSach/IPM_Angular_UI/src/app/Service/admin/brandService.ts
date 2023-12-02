@@ -18,7 +18,7 @@ export class branchService{
     getBrandbyName(name: string): Observable<branch[]>{
         return this.http.get<branch[]>(`${url}/api/categories/search/${name}/0/8`)
     }
-    addBranch(branch: any) {
-        return this.http.post<any>(`${url}/api/categories/create`, branch);
-    }
+    addProductType(data: any): Observable<any> {
+        return this.http.post(`http://localhost:3000/loaisp/create`, data);
+      }
 }

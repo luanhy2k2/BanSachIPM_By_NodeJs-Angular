@@ -11,9 +11,9 @@ import { HomeGetDataService } from 'src/app/Service/Client/HomePage/Home-getData
 })
 export class ProductComponent {
   constructor(private service: HomeGetDataService, private http: HttpClient) { }
-  pageInDex: number = 0
+  pageInDex: number = 1
   totalPagesArray: number[] = [];
-  products!: product[]
+  products!: any[]
   total!: number;
   loaisp!: loaisp[];
 
@@ -34,13 +34,13 @@ export class ProductComponent {
       this.loadData()
   }
   setCurrentPage(page: number) {
-    this.pageInDex = page-1;
+    this.pageInDex = page;
     this.loadData()
   }
   loadData() {
-    this.http.get("https://localhost:44301/api/Home/productCount").subscribe(res => {
-      const productCount = Number(res);
-      this.total = Math.ceil(productCount / 2)
+    this.http.get<any>("http://localhost:3000/api/Home/productCount").subscribe(res => {
+      const productCount = Number(res.total);
+      this.total = Math.ceil(productCount / 8)
       this.totalPagesArray = Array.from({ length: this.total }, (_, index) => index + 1);
     })
     

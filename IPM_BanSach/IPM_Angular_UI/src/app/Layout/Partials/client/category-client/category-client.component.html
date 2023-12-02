@@ -6,7 +6,7 @@
         <li>
             DANH MỤC
             <ul class="submenu">
-                <li [routerLink]="['/client/productCategory', item.loaiId]" *ngFor="let item of loaisp">{{item.loaiName}} </li>
+                <li [routerLink]="['/client/productCategory', item.loai_id]" *ngFor="let item of loaisp">{{item.loai_name}} </li>
                 <!-- Assuming 'data' is an array of objects with 'loai_id' and 'loai_name' properties -->
                 
                 <!-- Add more list items as needed for submenu -->

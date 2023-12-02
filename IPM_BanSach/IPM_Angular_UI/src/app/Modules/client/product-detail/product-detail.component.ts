@@ -33,12 +33,12 @@ export class ProductDetailComponent {
     this.productDetailService.getProductById(productId).subscribe(
       (res) => {
         this.productDetail = res;
-        this.productDetailService.getProductSameAuthor(res.tgId).subscribe(
+        this.productDetailService.getProductSameAuthor(res.tg_id).subscribe(
           (respon) => {
             this.productSameAuthors = respon;
           }
         );
-        this.getComment(res.sanpId);
+        this.getComment(res.sanp_id);
       },
       
       (error) => {

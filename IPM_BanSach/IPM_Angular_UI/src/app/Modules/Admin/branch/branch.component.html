@@ -9,28 +9,28 @@
                         <hr />
                     </div>
                     <div class="row">
-                        <form>
+                        
                             <div class="modal-body">
                                 <div class="col-12 col-s-12 padding-box">
-                                    <label for="txtright">Mã loại:</label>
+                                    <label for="txtright">Mã danh mục:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="id" placeholder="Mã loại" class="col-xs-10 col-sm-5" />
+                                    <input [(ngModel)]="requestData.danhmuc_id" type="text" id="id" placeholder="Mã loại" class="col-xs-10 col-sm-5" />
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
                                     <label for="txtright">Tên loại:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input [(ngModel)] = "loaiName" type="text" id="form-field-1" placeholder="Tên sách" class="col-xs-10 col-sm-5" />
+                                    <input [(ngModel)]="requestData.name" type="text" id="form-field-1" placeholder="Tên sách" class="col-xs-10 col-sm-5" />
                                 </div>
                              
                             </div>
                             <div class="modal-footer">
-                                <button (click)="addBranch()" type="submit"  class="btn-form">Thêm danh mục</button>
+                                <button (click)="addProductType()" type="submit"  class="btn-form">Thêm danh mục</button>
                  
                               
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>

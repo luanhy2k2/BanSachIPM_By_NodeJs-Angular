@@ -1,14 +1,16 @@
 export interface product{
-    sanpId: any,
-    sanpName:any,
-    size:any,
-    tgId:any,
-    loaiId:any,
+    sanp_id: any,
+    sanp_name:any,
+    Size:any,
+    Tg_id:any,
+    loai_id:any,
+    nsx_id:any,
     sotrang:any,
     tomtat:any,
-    namsx:any,
+    Image:any,
     image:any,
-    gia:any,
+    Gia:any,
     sl:any,
+    gia:any
     ngayNhap:any
 }
