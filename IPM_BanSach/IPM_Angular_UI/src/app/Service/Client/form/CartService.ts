@@ -27,7 +27,7 @@ export class CartService {
             // Check if the item is already in the cart.
             let ok = true;
             for (const x of list) {
-                if (x.sanpId === item.sanpId) {
+                if (x.sanp_id === item.sanp_id) {
                     x.quantity += 1;
                     ok = false;
                     break;

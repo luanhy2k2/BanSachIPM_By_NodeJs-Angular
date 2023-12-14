@@ -9,58 +9,66 @@ import { branchService } from 'src/app/Service/admin/brandService';
   styleUrls: ['./branch.component.scss']
 })
 export class BranchComponent {
-  requestData = {
-    danhmuc_id: null,
-    name: ''
-  };
-  constructor(private branchService: branchService, private route: ActivatedRoute) { }
-  branch: branch[] = [];
+  constructor(private branchService:branchService){ }
+  branch: any[] = [];
   pageIndex: number = 0;
   totalPageArray: number[] = []
   name: string = "";
+  requestData = {
+   
+    name: '',
+    danhmuc_id:1
+  };
   
-  ngOnInit() {
+  ngOnInit(){
     this.getBranch();
-
+    
   }
-  getBranch() {
-    this.branchService.countBranch().subscribe(res => {
-      var total = Number(res);
-      var toatlPage = Math.ceil(total / 2);
-      this.totalPageArray = Array.from({ length: toatlPage }, (_, index) => index + 1);
-      this.branchService.getBranch(this.pageIndex).subscribe(res => {
-        this.branch = res;
-      })
+  getBranch(){
+    // this.branchService.countBranch().subscribe(res=>{
+    //   var total = Number(res);
+    //   var toatlPage = Math.ceil(total/5);
+    //   this.totalPageArray = Array.from({ length: toatlPage }, (_, index) => index + 1);
+    //   this.branchService.getBranch(this.pageIndex).subscribe(res=>{
+    //     this.branch = res;
+    //   })
+    // })
+    this.branchService.getBranch().subscribe(res=>{
+      this.branch = res;
     })
   }
-  getBranchByName() {
-    this.branchService.getBrandbyName(this.name).subscribe(data => {
+  getBranchByName(){
+    this.branchService.getBrandbyName(this.name).subscribe(data =>{
       this.branch = data;
     });
   }
-  nextPage() {
+  nextPage(){
     this.pageIndex++;
     this.getBranch();
   }
-  previousPage() {
+  previousPage(){
     this.pageIndex--;
     this.getBranch();
   }
-  setPage(pageInDex: any) {
-    this.pageIndex = pageInDex - 1;
+  setPage(pageInDex:any){
+    this.pageIndex = pageInDex-1;
     this.getBranch();
   }
-  addProductType() {
-    this.branchService.addProductType(this.requestData)
-      .subscribe(
-        response => {
-          alert('Thêm loại sản phẩm thành công');
-          // Xử lý response nếu cần thiết
-        },
-        error => {
-          alert('Lỗi khi thêm loại sản phẩm');
-          // Xử lý lỗi nếu cần thiết
-        }
-      );
+  addBranch() {
+    this.branchService.addBranch(this.requestData).subscribe(response=>{
+      alert("suceess");
+      this.getBranch();
+    }
+    
+    );
+  }
+  deleteBranch(id: number) {
+    this.branchService.deleteBranch(id).subscribe(response=>{
+      alert("suceess");
+      this.getBranch();
+    }
+    
+    );
+    
   }
 }

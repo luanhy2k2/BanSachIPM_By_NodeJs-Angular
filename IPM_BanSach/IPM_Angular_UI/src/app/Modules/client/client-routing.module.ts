@@ -7,6 +7,7 @@ import { PaymentComponent } from "./payment/payment.component";
 import { ProductSearchComponent } from "./product-search/product-search.component";
 import { ProductCategoryComponent } from "./product-category/product-category.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
+import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
     {
         path:'Pay',
         component:PaymentComponent
+    },
+    {
+        path:'login',
+        component:LoginComponent
     },
     {
         path:'search/:name',

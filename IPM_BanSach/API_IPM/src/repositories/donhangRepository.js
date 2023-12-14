@@ -31,22 +31,29 @@ const DonHangRepository = {
             if (error) {
                 callback(error, null);
             } else {
-                db.query('SELECT COUNT(*) as total from donhang ;', [], function (
-                    errorCount,
-                    [totalProducts]
-                ) {
-                    if (errorCount) {
-                        callback(errorCount, null);
-                    } else {
-                        const tt = totalProducts.total;
-                        const json = {
-                            results,
-                            total: tt,
-                        };
-                        callback(null, json);
-                    }
-                });
+                callback(null, results)
+                // db.query('SELECT COUNT(*) as total from donhang ;', [], function (
+                //     errorCount,
+                //     [totalProducts]
+                // ) {
+                //     if (errorCount) {
+                //         callback(errorCount, null);
+                //     } else {
+                //         const tt = totalProducts.total;
+                //         const json = {
+                //             results,
+                //             total: tt,
+                //         };
+                //         callback(null, json);
+                //     }
+                // });
             }
+        });
+    },
+    GetTotalDonhang: function (callback) {
+        const sql = "SELECT COUNT(*) as total from donhang"
+        db.query(sql, [], function (error, [results]) {
+            callback(error, results);
         });
     },
 

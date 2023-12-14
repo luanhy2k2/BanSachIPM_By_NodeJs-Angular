@@ -8,6 +8,6 @@ import { orderPay } from "src/app/Models/orderPay.entity";
 export class PaymentService{
     constructor (private http: HttpClient){}
     payMent(orderPay:any){
-        return this.http.post<any>("https://localhost:44301/api/donhang/createDonHang", orderPay);
+        return this.http.post<any>("http://localhost:3000/api/home/createdonhang", orderPay);
     }
 }

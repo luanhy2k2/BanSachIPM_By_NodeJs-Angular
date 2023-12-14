@@ -1,5 +1,5 @@
 const userService = require("../services/userService");
-
+const auth = require('../config/jwt')
 const UserController = {
   authenticate: (req, res) => {
     const { username, password } = req.body;
@@ -11,7 +11,7 @@ const UserController = {
         }
 
         if (user) {
-          const token = generateToken(user); // Assuming generateToken is a function available in your code.
+          const token = auth.generateToken(user); // Assuming generateToken is a function available in your code.
           user.token = token;
           res.json(user);
         } else {

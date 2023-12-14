@@ -16,6 +16,11 @@ const DonHangService = {
             callback(err, results);
         });
     },
+    GetTotalDonhang(callback) {
+        donhangRepository.GetTotalDonhang((err, results) => {
+            callback(err, results);
+        });
+    },
     UpdateOrderStatus: (id, callback) => {
         donhangRepository.UpdateOrderStatus(id, (err, results) => {
             callback(err, results);

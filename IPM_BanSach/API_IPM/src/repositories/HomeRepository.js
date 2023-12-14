@@ -159,7 +159,7 @@ const HomeRepository = {
         });
     },
 
-    CreateDonHang: function ( khachhang, chitietdonhang, gia, callback) {
+    CreateDonHang: function (khachhang, chitietdonhang, gia, callback) {
         const sqlInsertKhachHang = `INSERT INTO khachhang (tenKhachHang, diaChi, email, sdt) VALUES (?, ?, ?, ?)`;
         const valuesKhachHang = [
             khachhang.tenKhachHang,
@@ -180,7 +180,7 @@ const HomeRepository = {
     
                 const maKhachHang = results[0].id;
     
-                const sqlInsertDonHang = `INSERT INTO donhang (maKhachHang, ngayDat, trangThai, giaTien, trangThaiThanhToan) VALUES (?,  curdate(), ?, ?, ?)`;
+                const sqlInsertDonHang = `INSERT INTO donhang (maKhachHang, ngayDat, trangThai, giaTien, trangThaiThanhToan) VALUES (?, curdate(), ?, ?, ?)`;
                 const valuesDonHang = [maKhachHang, 'Chưa xác nhận', gia, 'Chưa thanh toán'];
     
                 db.query(sqlInsertDonHang, valuesDonHang, function (error) {
@@ -197,34 +197,32 @@ const HomeRepository = {
     
                         const insertChitietDonHang = `INSERT INTO chitietdonhang (maDonHang, sanp_id, soLuong, gia) VALUES (?, ?, ?, ?)`;
     
-                        function insertChitietDonHangCallback(chitietDonHang, index) {
-                            if (index === chitietdonhang.length) {
-                                // All inserts completed
-                                callback(null, true);
-                            } else {
-                                const valuesChitietDonHang = [
-                                    maDonHang,
-                                    chitietDonHang[index].sanp_id,
-                                    chitietDonHang[index].soLuong,
-                                    chitietDonHang[index].gia
-                                ];
+                        // Sử dụng vòng lặp để thêm chi tiết đơn hàng cho từng sản phẩm
+                        for (let i = 0; i < chitietdonhang.length; i++) {
+                            const valuesChitietDonHang = [
+                                maDonHang,
+                                chitietdonhang[i].sanp_id,
+                                chitietdonhang[i].quantity,
+                                chitietdonhang[i].gia
+                            ];
     
-                                db.query(insertChitietDonHang, valuesChitietDonHang, function (error) {
-                                    if (error) {
-                                        return callback(error, null);
-                                    }
+                            db.query(insertChitietDonHang, valuesChitietDonHang, function (error) {
+                                if (error) {
+                                    return callback(error, null);
+                                }
     
-                                    insertChitietDonHangCallback(chitietDonHang, index + 1);
-                                });
-                            }
+                                // Kiểm tra nếu đã thêm chi tiết đơn hàng cho tất cả sản phẩm
+                                if (i === chitietdonhang.length - 1) {
+                                    callback(null, true);
+                                }
+                            });
                         }
-    
-                        insertChitietDonHangCallback(chitietdonhang, 0);
                     });
                 });
             });
         });
     },
+    
     
 };
 

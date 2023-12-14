@@ -39,7 +39,21 @@ const DonHangController = {
       }
     });
   },
+  GetTotalDonhang(req, res) {
+    
+    donhangService.GetTotalDonhang( (err, data) => {
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return res.status(500).send('Database error');
+      }
 
+      if (data) {
+        res.json(data);
+      } else {
+        res.json({ message: 'Bản ghi không tồn tại' });
+      }
+    });
+  },
   GetChiTietDonHangById: (req, res) => {
     const id = req.params.id;
     donhangService.GetChiTietDonHangById(id, (err, data) => {

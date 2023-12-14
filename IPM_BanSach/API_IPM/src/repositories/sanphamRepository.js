@@ -57,7 +57,7 @@ const SanphamRepository = {
     },
 
     GetAllSanpham: function ( callback) {
-        const sql = 'CALL GetAllSanpham()';
+        const sql = 'sele';
         db.query(sql, [], function (error, [results]) {
             if (error) {
                 callback(error, null);
@@ -85,9 +85,9 @@ const SanphamRepository = {
     UpdateSanpham: function ( Sanpham, callback) {
         const sql = 'CALL UpdateSanpham(?, ?, ?,?,?,?,?,?,?,?,?)';
         db.query(sql, [
-            Sanpham.sanp_id, Sanpham.sanp_name, Sanpham.size, Sanpham.tg_id,
+            Sanpham.sanp_id, Sanpham.sanp_name, Sanpham.size, Sanpham.tG_id,
             Sanpham.loai_id, Sanpham.nsx_id, Sanpham.soTrang,
-            Sanpham.tomTat, Sanpham.namsx, Sanpham.image, Sanpham.price
+            Sanpham.tomTat, Sanpham.namsx, Sanpham.image, Sanpham.gia
         ], function (error) {
             if (error) {
                 callback(error, null);

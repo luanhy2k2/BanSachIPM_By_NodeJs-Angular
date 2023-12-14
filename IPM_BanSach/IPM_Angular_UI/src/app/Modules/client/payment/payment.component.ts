@@ -8,49 +8,49 @@ import { PaymentService } from 'src/app/Service/Client/form/PaymentService';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent {
-  constructor(private cartService: CartService, private PayService:PaymentService){}
+  constructor(private cartService: CartService, private PayService: PaymentService) { }
   total: number = 0
   payForm = {
-    khach: {
-      tenKhachHang:"",
-      diaChi:"",
-      email:"",
-      sdt:""
-  },
-  ct:[
+    khachhang: {
+      tenKhachHang: "",
+      diaChi: "",
+      email: "",
+      sdt: ""
+    },
+    listchitiet: [
       {
-          sanpId:"",
-          quantity:"",
-          gia:""
+        sanp_id: "",
+        quantity: "",
+        gia: ""
       }
-  ], 
-  total:0
+    ],
+    gia: 0
   }
-  products! :any[]
-  ngOnInit(){
+  products!: any[]
+  ngOnInit() {
     this.loadCart();
     this.total = this.cartService.getTotalPrice();
   }
-  loadCart(){
+  loadCart() {
     const cartData = this.cartService.getCart()
     if (cartData !== null) {
       this.products = JSON.parse(cartData);
     }
   }
-  createDonHang(){
+  createDonHang() {
     const cartData = this.cartService.getCart()
     if (cartData !== null) {
       const cart = JSON.parse(cartData);
-      this.payForm.ct = cart;
+      this.payForm.listchitiet = cart;
       var totalPrice: number = cart.reduce((acc: number, product: any) => {
         return acc + product.gia * product.quantity;
       }, 0);
-      this.payForm.total = totalPrice;
-      this.PayService.payMent(this.payForm).subscribe(response=>{
+      this.payForm.gia = totalPrice;
+      this.PayService.payMent(this.payForm).subscribe(response => {
         alert("Đặt hàng thành công");
       }
       )
     }
-    
+
   }
 }

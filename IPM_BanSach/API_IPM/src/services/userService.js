@@ -1,3 +1,4 @@
+const userRepository = require('../repositories/userRepository')
 const UserService = {
     Authenticate: (username, password, callback) => {
         userRepository.GetUserByAccount(username, password, (err, user) => {

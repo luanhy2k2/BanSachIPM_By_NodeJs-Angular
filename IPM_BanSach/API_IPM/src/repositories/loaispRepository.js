@@ -24,7 +24,8 @@ const LoaiSpRespository = {
         db.query('CALL DeleteLoaiSp(?)', [id], (err, results) => {
             callback(err, results);
         });
-    }
+    },
+    
 
 };
 

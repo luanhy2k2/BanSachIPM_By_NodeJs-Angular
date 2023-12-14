@@ -11,6 +11,7 @@ import { ProductCategoryComponent } from './product-category/product-category.co
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { HttpClientModule } from "@angular/common/http";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations:[
@@ -20,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
     PaymentComponent,
     ProductCategoryComponent,
     ProductDetailComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    LoginComponent
   ],
     imports:[
       ClientRoutingModule,
