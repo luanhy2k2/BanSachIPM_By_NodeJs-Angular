@@ -1,0 +1,64 @@
+<div style="padding-left: 2%; padding-top: 2%;" id="content">
+    <h3>Sửa thông tin nhà xuất bản</h3>
+    <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Mã nhà xuất bản:</label
+        >
+        <input
+          class="form-input"
+          type="text" readonly
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "company.nsx_id"
+        />
+      </div>
+    <div class="form-field">
+      <label class="form-label" for="product-name"
+        >Tên nhà xuất bản:</label
+      >
+      <input
+        class="form-input"
+        type="text"
+        id="product-name"
+        name="product-name"
+       [(ngModel)] = "company.nsx_name"
+      />
+    </div>
+    <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Địa chỉ:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "company.diaChi"
+        />
+      </div>
+     
+      <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Số điện thoại:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "company.sdt"
+        />
+      </div>
+
+   
+    <button
+                type="button"
+                class="btn btn-primary"
+                (click)="editcompany()"
+              >
+                Save
+              </button>
+  </div>
+  
+
+

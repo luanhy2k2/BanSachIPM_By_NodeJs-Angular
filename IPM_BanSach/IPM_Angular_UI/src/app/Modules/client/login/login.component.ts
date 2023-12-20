@@ -21,9 +21,11 @@ export class LoginComponent {
         
         localStorage.setItem("user", JSON.stringify(res));
         if (res.loaiQuyen === "admin") {
-          this.router.navigate(['/admin/product']);
+          window.location.href = "http://localhost:4200/admin/product"
+          
         } else {
-          this.router.navigate(['/client/Home']);
+          window.location.href = "http://localhost:4200/client/Home"
+          
         }
       } 
     })

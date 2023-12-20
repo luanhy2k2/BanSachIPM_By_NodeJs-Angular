@@ -1,6 +1,4 @@
 const jwt = require("../config/jwt");
-const multer = require("multer");
-const express = require("express");
 
 const authenticate = (req, res, next) => {
     // Get the JWT token from the Authorization header
@@ -16,13 +14,5 @@ const authenticate = (req, res, next) => {
     next();
 };
 
-const storage = multer.diskStorage({
-    destination: "./uploads",
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
-    },
-});
-
-const upload = multer({ storage });
 module.exports = authenticate;
 

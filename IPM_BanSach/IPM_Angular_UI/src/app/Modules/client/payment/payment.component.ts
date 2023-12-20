@@ -9,7 +9,8 @@ import { PaymentService } from 'src/app/Service/Client/form/PaymentService';
 })
 export class PaymentComponent {
   constructor(private cartService: CartService, private PayService: PaymentService) { }
-  total: number = 0
+  total: number = 0;
+  user: any;
   payForm = {
     khachhang: {
       tenKhachHang: "",
@@ -30,6 +31,14 @@ export class PaymentComponent {
   ngOnInit() {
     this.loadCart();
     this.total = this.cartService.getTotalPrice();
+    var userString = localStorage.getItem('user');
+    this.user = userString ? JSON.parse(userString) : null;
+    if(this.user){
+      this.payForm.khachhang.tenKhachHang = this.user.hoTen;
+      this.payForm.khachhang.diaChi = this.user.diaChi;
+      this.payForm.khachhang.email = this.user.email;
+      this.payForm.khachhang.sdt = this.user.sdt;
+    }
   }
   loadCart() {
     const cartData = this.cartService.getCart()
@@ -46,10 +55,16 @@ export class PaymentComponent {
         return acc + product.gia * product.quantity;
       }, 0);
       this.payForm.gia = totalPrice;
-      this.PayService.payMent(this.payForm).subscribe(response => {
-        alert("Đặt hàng thành công");
+      if(!this.user){
+        alert("Bạn cần phải đăng nhập trước khi đặt hàng!")
       }
-      )
+      else
+      {
+       
+        this.PayService.payMent(this.payForm, this.user).subscribe(response => {
+          alert("Đặt hàng thành công");
+        })
+      }
     }
 
   }

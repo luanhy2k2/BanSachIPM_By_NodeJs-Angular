@@ -42,6 +42,7 @@ const HoaDonNhapRepository = {
             if (error) {
                 callback(error, null);
             } else {
+                // callback(null, results);
                 db.query(
                     'SELECT COUNT(*) as total from HoaDonNhap;',
                     [],
@@ -59,6 +60,12 @@ const HoaDonNhapRepository = {
                     }
                 );
             }
+        });
+    },
+    GetTotalHoaDonNhap: function (callback) {
+        const sql = "SELECT COUNT(*) as total from hoadonnhap"
+        db.query(sql, [], function (error, [results]) {
+            callback(error, results);
         });
     },
 };

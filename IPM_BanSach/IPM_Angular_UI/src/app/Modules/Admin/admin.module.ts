@@ -9,6 +9,15 @@ import { OrderDetailComponent } from './order/order-detail/order-detail.componen
 import { StatisticComponent } from './statistic/statistic.component';
 import { EditBranchComponent } from './edit-branch/edit-branch.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { ImportInvoiceComponent } from './import-invoice/import-invoice.component';
+import {  EditImportInvoiceComponent } from './import-invoice/edit/edit-importinvoice.component';
+import { AuthorComponent } from './author/author.component';
+import { AuthorEditComponent } from './author/author-edit/author-edit.component';
+import { CompanyComponent } from './company/company.component';
+
+import { CompanyEditComponent } from './Company/company-edit/company-edit.component';
+import { PartialsModule } from "src/app/Layout/Partials/Partials.module";
+import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -21,12 +30,20 @@ import { EditProductComponent } from './product/edit-product/edit-product.compon
     StatisticComponent,
     EditBranchComponent,
     EditProductComponent,
+    ImportInvoiceComponent,
+    EditImportInvoiceComponent,
+    AuthorComponent,
+    AuthorEditComponent,
+    CompanyComponent,
+   
+    CompanyEditComponent,
    
   ],
     imports:[
         FormsModule,
         CommonModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        HttpClientModule
     ]
 })
 export class AdminModule{}

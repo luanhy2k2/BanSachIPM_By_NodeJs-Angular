@@ -1,0 +1,75 @@
+<div style="padding-left: 2%; padding-top: 2%;" id="content">
+    <h3>Sửa thông tin tác giả</h3>
+    <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Mã tác giả:</label
+        >
+        <input
+          class="form-input"
+          type="text" readonly
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "author.tG_id"
+        />
+      </div>
+    <div class="form-field">
+      <label class="form-label" for="product-name"
+        >Tên tác giả:</label
+      >
+      <input
+        class="form-input"
+        type="text"
+        id="product-name"
+        name="product-name"
+       [(ngModel)] = "author.tG_name"
+      />
+    </div>
+    <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Địa chỉ:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "author.tG_diaChi"
+        />
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Email:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "author.email"
+        />
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="product-name"
+          >Số điện thoại:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="product-name"
+          name="product-name"
+         [(ngModel)] = "author.sdt"
+        />
+      </div>
+
+   
+    <button
+                type="button"
+                class="btn btn-primary"
+                (click)="editAuthor()"
+              >
+                Save
+              </button>
+  </div>
+  
+
+

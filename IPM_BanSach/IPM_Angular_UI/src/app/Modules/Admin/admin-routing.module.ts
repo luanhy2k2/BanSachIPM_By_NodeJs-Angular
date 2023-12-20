@@ -7,11 +7,27 @@ import { OrderDetailComponent } from "./order/order-detail/order-detail.componen
 import { StatisticComponent } from "./statistic/statistic.component";
 import { EditBranchComponent } from "./edit-branch/edit-branch.component";
 import { EditProductComponent } from "./product/edit-product/edit-product.component";
+import { ImportInvoiceComponent } from "./import-invoice/import-invoice.component";
+import { EditImportInvoiceComponent } from "./import-invoice/edit/edit-importinvoice.component";
+import { AuthorComponent } from "./author/author.component";
+import { AuthorEditComponent } from "./author/author-edit/author-edit.component";
+import { CompanyComponent } from "./company/company.component";
+import { CompanyEditComponent } from "./Company/company-edit/company-edit.component";
 
 const routes: Routes = [
     {
         path: 'branch',
         component:BranchComponent
+        
+    },
+    {
+        path: 'company',
+        component:CompanyComponent
+        
+    },
+    {
+        path: 'company/edit/:id',
+        component:CompanyEditComponent
         
     },
     {
@@ -32,6 +48,26 @@ const routes: Routes = [
     {
         path: 'order',
         component:OrderComponent
+        
+    },
+    {
+        path: 'hoadonnhap',
+        component:ImportInvoiceComponent
+        
+    },
+    {
+        path: 'hoadonnhap/edit/:id',
+        component:EditImportInvoiceComponent
+        
+    },
+    {
+        path: 'author',
+        component:AuthorComponent
+        
+    },
+    {
+        path: 'author/edit/:id',
+        component:AuthorEditComponent
         
     },
     {

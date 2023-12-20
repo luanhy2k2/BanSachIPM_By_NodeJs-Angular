@@ -38,6 +38,24 @@ const NhasxController = {
     });
   },
 
+  GetNhasxByName: (req, res) => {
+    const name = req.params.name;
+    nhasxService.GetNhasxByName(name, (err, data) => {
+      try {
+        if (err) {
+          console.error('Error fetching Nhasx by ID: ' + err.stack);
+          return res.status(500).json({ message: 'Database error' });
+        }
+        if (data) {
+          res.json(data);
+        } else {
+          res.json({ message: 'Bản ghi không tồn tại' });
+        }
+      } catch (error) {
+        res.json({ message: error.message });
+      }
+    });
+  },
   CreateNhasx: (req, res) => {
     const nhasx = req.body;
     nhasxService.CreateNhasx(nhasx, (err) => {

@@ -25,7 +25,7 @@ import { CategoryAdminComponent } from './admin/category-admin/category-admin.co
         RouterModule,
         BrowserModule,
         FormsModule,
-        HttpClientModule,
+       
         
     ],
     exports:[

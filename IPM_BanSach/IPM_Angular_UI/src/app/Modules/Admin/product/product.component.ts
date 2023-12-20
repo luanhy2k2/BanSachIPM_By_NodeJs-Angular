@@ -18,12 +18,12 @@ export class ProductComponent {
   productById!: any;
   pageIndex: number = 1;
   totalPageArray: number[] = []
+  users:any = "";
   name: string = "";
   branch:any[] = [];
   company: any[] = [];
   author: any[] = [];
   requestData = {
-     
       sanp_name: "",
       size:"",
       tg_id:0,
@@ -39,6 +39,8 @@ export class ProductComponent {
     this.selectedFile = event.target.files[0];
   }
   ngOnInit(){
+  var userString = localStorage.getItem('user');
+  this.users = userString ? JSON.parse(userString) : null;
    this.getproduct();
    this.getBranch();
    this.getCompany();
@@ -113,10 +115,15 @@ export class ProductComponent {
       response => {
         console.log(response);
         this.requestData.image = response.filename.originalname;
-        this.productService.addproduct(this.requestData).subscribe(response => {
-          alert("Thêm sản phẩm thành công!");
-          this.getproduct();
-        })
+        if(!this.users){
+          alert("Bạn cần phải đăng nhập!")
+        }
+        else{
+          this.productService.addproduct(this.requestData, this.users).subscribe(response => {
+            alert("Thêm sản phẩm thành công!");
+            this.getproduct();
+          })
+        }
       },
     );
   }

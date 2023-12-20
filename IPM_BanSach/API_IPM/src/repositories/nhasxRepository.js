@@ -10,7 +10,16 @@ const NhasxRepository = {
             }
         });
     },
-
+    GetNhasxByname: function ( name, callback) {
+        const sql = 'CALL searcNhasx(?)';
+        db.query(sql, [name], function (error, [results]) {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, results);
+            }
+        });
+    },
     GetAllNhasx: function ( callback) {
         const sql = 'CALL GetAllNhasx()';
         db.query(sql, [], function (error, [results]) {

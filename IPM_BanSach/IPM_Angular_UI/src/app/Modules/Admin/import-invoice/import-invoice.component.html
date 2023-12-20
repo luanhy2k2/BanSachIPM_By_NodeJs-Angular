@@ -21,11 +21,11 @@
             class="form-control bg-light border-0 small"
             placeholder="Search for..."
             aria-label="Search"
-            [(ngModel)] = "name"
+           
             aria-describedby="basic-addon2"
           />
           <div class="input-group-append">
-            <button class="btn btn-primary" (click)="getproductByName()" type="button">
+            <button class="btn btn-primary"  type="button">
               <i class="fas fa-search fa-sm"></i>
             </button>
           </div>
@@ -250,7 +250,7 @@
             aria-expanded="false"
           >
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-              >{{users.hoTen}}</span
+              >Douglas McGee</span
             >
             <img
               class="img-profile rounded-circle"
@@ -295,7 +295,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Product</h1>
+      <h1 class="h3 mb-4 text-gray-800">Import Invoice</h1>
       <!-- Modal -->
       <div
         class="modal fade"
@@ -322,137 +322,25 @@
                 <div>
                   <div class="form-field">
                     <label class="form-label" for="product-name"
-                      >Tên sản phẩm:</label
+                      >Mã người dùng:</label
                     >
                     <input
                       class="form-input"
                       type="text"
                       id="product-name"
                       name="product-name"
-                     [(ngModel)] = "requestData.sanp_name"
+                     [(ngModel)] = "requestData.maNguoiDung"
                     />
                   </div>
 
                   <div class="form-field">
-                    <label class="form-label" for="note">Mô tả:</label>
+                    <label class="form-label" for="note">Nhà sản xuất:</label>
                     <input
                       class="form-input"
                       id="note"
                       name="note"
                       rows="3"
-                      [(ngModel)] = "requestData.tomTat"
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label" for="price"
-                      >Giá tiền:</label
-                    >
-                    <input
-                      class="form-input"
-                      type="text"
-                      id="price"
-                      name="price"
-                      [(ngModel)] = "requestData.price"
-                    />
-                  </div>
-
-                  <div class="form-field">
-                    <label class="form-label" for="price"
-                      >Số trang:</label
-                    >
-                    <input
-                      class="form-input"
-                      type="text"
-                      id="price"
-                      name="price"
-                      [(ngModel)] = "requestData.soTrang"
-                    />
-                  </div>
-                 
-                  <div class="form-field">
-                    <label class="form-label" for="price"
-                      >Size:</label
-                    >
-                    <input
-                      class="form-input"
-                      type="text"
-                      id="price"
-                      name="price"
-                      [(ngModel)] = "requestData.size"
-                    />
-                  </div>
-                 
-                  
-                  
-
-                  <div class="form-field">
-                    <label class="form-label" for="price"
-                      >Năm sản xuất:</label
-                    >
-                    <input
-                      class="form-input"
-                      [(ngModel)] = "requestData.namsx"
-                      type="datetime-local"
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label" for="category"
-                      >Thể loại:</label
-                    >
-                    <select
-                      class="form-select"
-                      id="category"
-                      name="category"
-                      [(ngModel)] = "requestData.loai_id"
-                    >
-                      <option *ngFor="let x of branch"  [value]="x.loai_id">
-                        {{x.loai_name}}
-                      </option>
-                    </select>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label" for="category"
-                      >Tác giả:</label
-                    >
-                    <select
-                      class="form-select"
-                      id="category"
-                      name="category"
-                      [(ngModel)] = "requestData.tg_id"
-                    >
-                      <option *ngFor="let x of author"  [value]="x.tG_id">
-                        {{x.tG_name}}
-                      </option>
-                    </select>
-                  </div>
-
-                  <div class="form-field">
-                    <label class="form-label" for="category"
-                      >Nhà sản xuất:</label
-                    >
-                    <select
-                      class="form-select"
-                      id="category"
-                      name="category"
                       [(ngModel)] = "requestData.nsx_id"
-                    >
-                      <option *ngFor="let x of company"  [value]="x.nsx_id">
-                        {{x.nsx_name}}
-                      </option>
-                    </select>
-                  </div>
-
-                  
-
-                  <div class="form-field">
-                    <label class="form-label" for="image"
-                      >Hình ảnh:</label
-                    >
-                    <!-- <input
-                    type="file" id="imageUpload" name="image" accept="image/*"  (change)="onFileChanged($event)"
-                    /> -->
-                    <input
-                    type="file" id="imageUpload" name="image" accept="image/*"  (change)="onFileChanged($event)"
                     />
                   </div>
                 </div>
@@ -469,7 +357,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                (click)="addproduct()"
+                (click)="addinvoice()"
               >
                 Save
               </button>
@@ -497,185 +385,32 @@
               <thead class="thead-dark">
                 <tr>
                 
-                  <th>Name</th>
-                  <th>Thể loại</th>
-                  <th>Số trang</th>
-                  <th>Tác giả</th>
-                  <th>Size</th>
-                  <th>Năm sản xuất</th>
-                  <th>Price</th>
-                  <th>Image</th>
+                  <th>Số hoá đơn</th>
+                  <th>Ngày nhập</th>
+                  <th>Nhân viên</th>
+                  <th>Nhà sản xuất</th>
+                  <th>Giá tiền</th>
                   <th>Options</th>
                   
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let x of product">
+                <tr *ngFor="let x of ImportInvoice">
            
-                  <td>{{x.sanp_name}}</td>
-                  <td>{{x.loai_name}}</td>
-                  <td>{{x.soTrang}}</td>
-                  <td>{{x.tG_name}}</td>
-                  <td>{{x.size}}</td>
-                  <td>{{x.namsx}}</td>
-                  <td>{{x.gia}}<sup>₫</sup></td>
-                  <td>
-                    <img style="width: 100px" src="../../../../assets/img/book/{{x.image}}" alt="" />
-                  </td>
+                  <td>{{x.soHoaDon}}</td>
+                  <td>{{x.ngayNhap}}</td>
+                  <td>{{x.hoTen}}</td>
+                  <td>{{x.nsx_name}}</td>
+                  <td>{{x.giaTien}}</td>
                   <td>
                     <a
-                    
                     type="button"
-                    [routerLink]="['/admin/product/edit', x.sanp_id]"
+                    [routerLink]="['/admin/hoadonnhap/edit', x.soHoaDon]"
                     class="btn btn-primary"
                     ><i class="fa-solid fa-edit"></i
                   ></a>
-                    <!-- <a
-                      href="#"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModaledit"
-                      ng-click="getProductByID(x.id)"
-                      class="btn btn-warning"
-                      ><i class="fa-solid fa-pen"></i
-                    ></a> -->
-
-                    <!-- <div
-                      class="modal fade"
-                      id="exampleModaledit"
-                      tabindex="-1"
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                              Edit
-                            </h5>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="form-container">
-                              <form method="post">
-                                <input
-                                  ng-model="ProductByID.proID"
-                                  type="hidden"
-                                  name=""
-                                  id=""
-                                />
-                                <div class="form-field">
-                                  <label class="form-label" for="product-name"
-                                    >Tên sản phẩm:</label
-                                  >
-                                  <input
-                                    class="form-input"
-                                    type="text"
-                                    id="product-name"
-                                    name="product-name"
-                                    ng-model="ProductByID.proName"
-                                  />
-                                </div>
-
-                                <div class="form-field">
-                                  <label class="form-label" for="note">Mô tả:</label>
-                                  <textarea
-                                    class="form-input"
-                                    id="note"
-                                    name="note"
-                                    rows="3"
-                                    ng-model="ProductByID.descriptions"
-                                  ></textarea>
-                                </div>
-                                <div class="form-field">
-                                  <label class="form-label" for="price"
-                                    >Giá tiền:</label
-                                  >
-                                  <input
-                                    class="form-input"
-                                    type="text"
-                                    id="price"
-                                    name="price"
-                                    ng-model="ProductByID.price"
-                                  />
-                                </div>
-
-                                <div class="form-field">
-                                  <label class="form-label" for="category"
-                                    >Thể loại:</label
-                                  >
-                                  <select
-                                    class="form-select"
-                                    id="category"
-                                    name="category"
-                                    ng-model="ProductByID.name"
-                                  >
-                                    <option ng-repeat="x in category" value="x.id">
-                                      x.name
-                                    </option>
-                                  </select>
-                                </div>
-
-                                <div class="form-field">
-                                  <label class="form-label" for="color">Size:</label>
-                                  <select
-                                    ng-model="ProductByID.size"
-                                    class="form-select"
-                                    id="color"
-                                    name="color"
-                                  >
-                                    <option ng-repeat="x in size" value="x.id">
-                                      x.size
-                                    </option>
-                                  </select>
-                                </div>
-
-                                <div class="form-field">
-                                  <label class="form-label" for="image"
-                                    >Hình ảnh:</label
-                                  >
-                                  <input
-                                    class="form-input"
-                                    type="file"
-                                    id="UploadFileEdit"
-                                    name="image"
-                                  />
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button
-                              type="button"
-                              class="btn btn-primary"
-                              ng-click="updateProduct()"
-                            >
-                              Save
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                    <a
-                      
-                      type="button"
-                     (click)="deleteproduct(x.sanp_id)"
-                      class="btn btn-danger"
-                      ><i class="fa-solid fa-trash-can"></i
-                    ></a>
-                  </td>
+                    
+                  </td> 
                 </tr>
               </tbody>
             </table>

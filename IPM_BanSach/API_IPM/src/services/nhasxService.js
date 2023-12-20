@@ -7,6 +7,11 @@ const NhasxService = {
             callback(err, results);
         });
     },
+    GetNhasxByName: (name, callback) => {
+        nhasxRepository.GetNhasxByname(name, (err, results) => {
+            callback(err, results);
+        });
+    },
     GetAllNhasx: (callback) => {
         nhasxRepository.GetAllNhasx((err, results) => {
             callback(err, results);

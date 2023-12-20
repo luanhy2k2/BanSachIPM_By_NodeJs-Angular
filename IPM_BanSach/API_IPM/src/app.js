@@ -15,15 +15,18 @@ const storage = multer.diskStorage({
     },
 });
 
-const upload = (multer)({ storage });
+const upload = multer({ storage });
+
 app.post("/upload", upload.single("file"), (req, res) => {
+    // Check if req.file is present
+    if (!req.file) {
+        return res.status(500).json({ error: "No file provided" });
+    }
     const filename = req.file;
     res.status(200).json({ filename });
 });
 
 app.use('/api', routes_1);
-
-
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });

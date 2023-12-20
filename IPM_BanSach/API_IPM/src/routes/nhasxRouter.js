@@ -1,7 +1,7 @@
 const express = require('express');
 const nhasxRouter = express.Router();
 const nhasxController = require('../controllers/nhasxController');
-
+nhasxRouter.get('/getbyname/:name', nhasxController.GetNhasxByName);
 nhasxRouter.get('/getbyid/:id', nhasxController.GetNhasxById);
 nhasxRouter.get('/getbyname/:name', nhasxController.GetByName);
 nhasxRouter.get('/getall', nhasxController.GetAllNhasx);

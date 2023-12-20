@@ -10,6 +10,16 @@ const TacgiaRepository = {
             }
         });
     },
+    GetTacgiaByName: function ( name, callback) {
+        const sql = 'CALL searchTacgia(?)';
+        db.query(sql, [name], function (error, [results]) {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, results);
+            }
+        });
+    },
 
     GetAllTacgia: function ( callback) {
         const sql = 'CALL GetAllTg()';

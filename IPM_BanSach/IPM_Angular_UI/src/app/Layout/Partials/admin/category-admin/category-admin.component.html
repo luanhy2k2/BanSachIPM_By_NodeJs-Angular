@@ -33,9 +33,15 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" [routerLink]="['/client/home']">
             <i class="fas fa-fw fa-house"></i>
             <span>Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/admin/statistic']" class="nav-link">
+            <i class="fas fa-fw fa-dashboard"></i>
+            <span>Dashboard</span>
           </a>
         </li>
 
@@ -64,6 +70,8 @@
                 >Loại sản phẩm</a
               >
               <a class="collapse-item" [routerLink]="['/admin/product']">Sản phẩm</a>
+              <a class="collapse-item" [routerLink]="['/admin/author']">Tác giả</a>
+              <a class="collapse-item" [routerLink]="['/admin/company']">Nhà xuất bản</a>
             </div>
           </div>
         </li>
@@ -89,7 +97,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
              
               <a class="collapse-item" [routerLink]="['/admin/order']">Order</a>
+              <a class="collapse-item" [routerLink]="['/admin/hoadonnhap']">Import Invoice</a>
             </div>
+            
           </div>
         </li>
 

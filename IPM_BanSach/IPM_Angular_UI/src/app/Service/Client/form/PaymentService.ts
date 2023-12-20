@@ -7,7 +7,11 @@ import { orderPay } from "src/app/Models/orderPay.entity";
 })
 export class PaymentService{
     constructor (private http: HttpClient){}
-    payMent(orderPay:any){
-        return this.http.post<any>("http://localhost:3000/api/home/createdonhang", orderPay);
+    payMent(orderPay:any, us:any){
+        return this.http.post<any>("http://localhost:3000/api/home/createdonhang", orderPay,{
+            headers: {
+                Authorization: `Bearer ${us.token}`
+            }
+        });
     }
 }

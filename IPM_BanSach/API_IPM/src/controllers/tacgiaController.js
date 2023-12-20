@@ -30,6 +30,20 @@ const TacgiaController = {
             }
         });
     },
+    GetTacgiaByName: (req, res) => {
+        const name = req.params.name;
+        tacgiaService.GetTacgiaByName(name, (err, data) => {
+            if (err) {
+                console.error('Error executing query: ' + err.stack);
+                return res.status(500).send('Database error');
+            }
+            if (data) {
+                res.json(data);
+            } else {
+                res.json({ message: 'Bản ghi không tồn tại' });
+            }
+        });
+    },
 
     CreateTacgia: (req, res) => {
         const Tacgia = req.body;

@@ -16,6 +16,6 @@ export class HeaderClientComponent {
   logOut(){
     localStorage.removeItem('user');
     alert("Đăng xuất thành công");
-    this.route.navigate(['/client/Home']);
+    window.location.reload();
   }
 }

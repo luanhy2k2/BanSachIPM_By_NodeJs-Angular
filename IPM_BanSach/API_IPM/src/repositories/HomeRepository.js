@@ -37,6 +37,7 @@ const HomeRepository = {
                 callback(error, null);
             } else {
                 callback(null, results);
+                
                 // db.query(`
                 // SELECT COUNT(*) as total from sanpham inner join loaisp on sanpham.loai_id = loaisp.loai_id inner join tg 
                 // on sanpham.tg_id = tg.tG_id inner join nhasx on sanpham.nsx_id = nhasx.nsx_id inner join giaca on sanpham.sanp_id = giaca.sanp_id;`, [], function (error, totalProducts) {

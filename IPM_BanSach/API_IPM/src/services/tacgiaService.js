@@ -5,6 +5,11 @@ const TacgiaService = {
             callback(err, results);
         });
     },
+    GetTacgiaByName: (name, callback) => {
+        myRepository.GetTacgiaByName(name, (err, results) => {
+            callback(err, results);
+        });
+    },
     GetAllTacgia: (callback) => {
         myRepository.GetAllTacgia((err, results) => {
             callback(err, results);

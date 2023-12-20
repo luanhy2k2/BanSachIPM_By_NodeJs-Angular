@@ -25,8 +25,12 @@ export class productService{
     getBrandbyName(name: string): Observable<product[]>{
         return this.http.get<any[]>(`${url}/api/sanpham/getbyname/${name}`)
     }
-    addproduct(product: any) {
-        return this.http.post<any>(`${url}/api/sanpham/create`, product);
+    addproduct(product: any,us:any ) {
+        return this.http.post<any>(`${url}/api/sanpham/create`, product,{
+            headers: {
+                Authorization: `Bearer ${us.token}`
+            }
+        });
     }
     editproduct(product: any) {
         return this.http.post<any>(`${url}/api/sanpham/update`, product);

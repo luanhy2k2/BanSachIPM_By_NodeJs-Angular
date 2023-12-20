@@ -25,7 +25,7 @@ export class EditProductComponent {
    });
    this.getBranch();
    this.getCompany();
-  this.getAuthor()
+   this.getAuthor()
  }
  onFileChanged(event: any) {
    this.selectedFile = event.target.files[0];
@@ -52,15 +52,23 @@ export class EditProductComponent {
    });
  }
  editproduct() {
-   this.user.uploadFile(this.selectedFile).subscribe(
-     response => {
-       console.log(response);
-       this.product.image = response.filename.originalname;
-       this.productServie.editproduct(this.product).subscribe(response=>{
-         alert("Sửa sản phẩm thành công");
-       })
-     },
-   );
+  if(!this.selectedFile){
+    this.productServie.editproduct(this.product).subscribe(response=>{
+      alert("Sửa sản phẩm thành công");
+    })
+  }
+  else{
+    this.user.uploadFile(this.selectedFile).subscribe(
+      response => {
+        console.log(response);
+        this.product.image = response.filename.originalname;
+        this.productServie.editproduct(this.product).subscribe(response=>{
+          alert("Sửa sản phẩm thành công");
+        })
+      },
+    );
+  }
+   
   
  }
 }
