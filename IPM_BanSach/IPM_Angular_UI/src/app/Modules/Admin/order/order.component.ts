@@ -27,7 +27,11 @@ export class OrderComponent {
       this.order = data;
     });
   }
-  
+  conFirmOrder(id:any){
+    this.orderService.confirmOrder(id).subscribe(res=>{
+      alert("Xác nhận thành công")
+    })
+  }
   nextPage(){
     this.pageIndex++;
     this.getOrder();

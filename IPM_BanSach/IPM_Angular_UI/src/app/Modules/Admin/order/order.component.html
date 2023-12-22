@@ -412,8 +412,6 @@
     </nav>
     <div class="container-fluid">
         <div class="card shadow mb-4">
-          
-        
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table" id="" width="100%" cellspacing="0">
@@ -424,7 +422,7 @@
                         <th>Ngày đặt</th>
                         <th>Giá tiền</th>
                         <th>Trạng thái</th>
-                       
+                        <th>Trạng thái thanh toán</th>
                         <th></th>
 
                     </tr>
@@ -436,22 +434,25 @@
                         <td>{{x.ngayDat}}</td>
                         <td>{{x.giaTien}}</td>
                         <td>{{x.trangThai}}</td>
-                       
-                        <td><i [routerLink]="['/admin/orderDetail', x.maDonHang]" class="fa fa-eye"></i></td>
+                        <td>{{x.trangThaiThanhToan}}</td>
+                        <td >
+                          <i [routerLink]="['/admin/orderDetail', x.maDonHang]" class="fa fa-eye"></i>
+                          <i (click)="conFirmOrder(x.maDonHang)" style="padding-left: 6px;" class="fa fa-check"></i>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <div style="padding-left: 50%;" class="padding-box">
+              <div class="padding-box">
                 <div class="box-sum">
                     <div style="padding-left: 5px;" class="box-right">
-                        <button style="color: white; background-color: blue;" (click)="previousPage()">
+                        <button style="color: white; background-color: darkgreen;" (click)="previousPage()">
                             <i class="fa fa-chevron-left" style="margin-top: -8px;"></i>
                         </button>
-                        <button style="color: white;background-color: blue;" *ngFor="let page of totalPageArray" (click)="setPage(page)">
+                        <button style="color: white;background-color: darkgreen;" *ngFor="let page of totalPageArray" (click)="setPage(page)">
                             {{ page }}
                         </button>
-                        <button style="color: white;background-color: blue;" (click)="nextPage()">
+                        <button style="color: white;background-color: darkgreen;" (click)="nextPage()">
                             <i class="fa fa-chevron-right" style="margin-top: -8px;"></i>
                         </button>
                     </div>

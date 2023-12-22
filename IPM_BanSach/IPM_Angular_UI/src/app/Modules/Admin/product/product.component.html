@@ -295,7 +295,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Product</h1>
+        
       <!-- Modal -->
       <div
         class="modal fade"
@@ -680,16 +680,16 @@
               </tbody>
             </table>
           </div>
-          <div style="padding-left: 50%;" class="padding-box">
+          <div class="padding-box">
             <div class="box-sum">
-                <div style="padding-left: 5px;" class="box-right">
-                    <button style="color: white; background-color: blue;" (click)="previousPage()">
+                <div style="padding-left: 5px; " class="box-right">
+                    <button style="color: white; background-color: darkgreen; border: none;" (click)="previousPage()">
                         <i class="fa fa-chevron-left" style="margin-top: -8px;"></i>
                     </button>
-                    <button style="color: white;background-color: blue;" *ngFor="let page of totalPageArray" (click)="setPage(page)">
+                    <button style="color: white;background-color: darkgreen; border: none;" *ngFor="let page of totalPageArray" (click)="setPage(page)">
                         {{ page }}
                     </button>
-                    <button style="color: white;background-color: blue;" (click)="nextPage()">
+                    <button style="color: white;background-color: darkgreen; border: none;" (click)="nextPage()">
                         <i class="fa fa-chevron-right" style="margin-top: -8px;"></i>
                     </button>
                 </div>
