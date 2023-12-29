@@ -12,6 +12,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { CKEditorModule } from "ckeditor4-angular";
 
 @NgModule({
     declarations:[
@@ -22,11 +24,13 @@ import { LoginComponent } from './login/login.component';
     ProductCategoryComponent,
     ProductDetailComponent,
     ProductSearchComponent,
-    LoginComponent
+    LoginComponent,
+    MyOrderComponent
   ],
     imports:[
       ClientRoutingModule,
       CommonModule,
+      CKEditorModule,
       HttpClientModule,
       FormsModule
     ]

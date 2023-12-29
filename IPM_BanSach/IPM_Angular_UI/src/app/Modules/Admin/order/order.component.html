@@ -281,7 +281,7 @@
               <div class="dropdown-list-image mr-3">
                 <img
                   class="rounded-circle"
-                  src="img/undraw_profile_1.svg"
+                  src="../../../../assets/img/undraw_profile_1.svg"
                   alt="..."
                 />
                 <div class="status-indicator bg-success"></div>
@@ -298,7 +298,7 @@
               <div class="dropdown-list-image mr-3">
                 <img
                   class="rounded-circle"
-                  src="img/undraw_profile_2.svg"
+                  src="../../../../assets/img/undraw_profile_2.svg"
                   alt="..."
                 />
                 <div class="status-indicator"></div>
@@ -315,7 +315,7 @@
               <div class="dropdown-list-image mr-3">
                 <img
                   class="rounded-circle"
-                  src="img/undraw_profile_3.svg"
+                  src="../../../../assets/img/undraw_profile_3.svg"
                   alt="..."
                 />
                 <div class="status-indicator bg-warning"></div>
@@ -422,7 +422,10 @@
                         <th>Ngày đặt</th>
                         <th>Giá tiền</th>
                         <th>Trạng thái</th>
-                        <th>Trạng thái thanh toán</th>
+                        <th>Giao hàng</th>
+                        <th>Thanh toán</th>
+                        
+                        
                         <th></th>
 
                     </tr>
@@ -431,9 +434,37 @@
                     <tr *ngFor="let x of order">
                         <td>{{x.maDonHang}}</td>
                         <td>{{x.tenKhachHang}}</td>
-                        <td>{{x.ngayDat}}</td>
+                        <td>{{x.ngayDat| date:'yyyy-MM-dd'}}</td>
                         <td>{{x.giaTien}}</td>
-                        <td>{{x.trangThai}}</td>
+                        <!-- <td>{{x.trangThai}}</td> -->
+                        <td>
+                          <select [(ngModel)]="x.trangThai" (change)="onChangeTrangThai(x)">
+                            <option value="Chưa xác nhận">
+                                Chưa xác nhận
+                            </option>
+                            <option value="Đã xác nhận">
+                                Đã xác nhận
+                            </option>
+                           
+                        </select>
+                        </td>
+                        <td>
+                          <select  [(ngModel)]="x.trangThaiGiaoHang" (change)="onChangeGiaoHang(x)">
+                            <option value="Chưa giao hàng">
+                                Chưa giao hàng
+                            </option>
+                            <option value="Đang giao hàng">
+                              Đang giao hàng
+                          </option>
+                            <option value="Giao hàng thất bại">
+                              Giao hàng không thành công
+                            </option>
+                            <option value="Giao hàng thành công">
+                              Giao hàng thành công
+                            </option>
+                           
+                        </select>
+                        </td>
                         <td>{{x.trangThaiThanhToan}}</td>
                         <td >
                           <i [routerLink]="['/admin/orderDetail', x.maDonHang]" class="fa fa-eye"></i>

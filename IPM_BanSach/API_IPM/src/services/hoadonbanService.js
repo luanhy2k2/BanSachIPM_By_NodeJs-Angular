@@ -1,5 +1,5 @@
 
-const hoadonbanRepository = require("../repositories/hoadonbanRepository");
+const hoadonbanRepository = require("../repositories/admin/hoadonbanRepository");
 const HoaDonBanService = {
     GetChiTietHoaDonBanById: (id, callback) => {
         hoadonbanRepository.GetChiTietHoaDonBanById(id, (err, results) => {

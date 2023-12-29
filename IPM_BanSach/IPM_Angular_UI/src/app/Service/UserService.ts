@@ -8,17 +8,21 @@ const url = 'http://localhost:3000';
 @Injectable({
     providedIn: "root"
 })
-export class UserService{
-    constructor(private httpClient: HttpClient){}
-    login(username: string, password:string):Observable<any>{
-        return this.httpClient.post<any>('http://localhost:3000/api/user/login', {username,password,})
+export class UserService {
+    constructor(private httpClient: HttpClient) { }
+    login(username: string, password: string): Observable<any> {
+        return this.httpClient.post<any>('http://localhost:3000/api/user/login', { username, password, })
     }
     uploadFile(file: File): Observable<any> {
         const formData: FormData = new FormData();
         formData.append('file', file);
-    
+
         return this.httpClient.post<any>("http://localhost:3000/upload", formData);
-      }
-    
-    
+    }
+    getUser() {
+        var userString = localStorage.getItem('user');
+        return userString ? JSON.parse(userString) : null;
+    }
+
+
 }

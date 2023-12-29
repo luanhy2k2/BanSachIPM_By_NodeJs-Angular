@@ -8,6 +8,7 @@ import { ProductSearchComponent } from "./product-search/product-search.componen
 import { ProductCategoryComponent } from "./product-category/product-category.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { LoginComponent } from "./login/login.component";
+import { MyOrderComponent } from "./my-order/my-order.component";
 
 const routes: Routes = [
     {
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
         path:'Pay',
         component:PaymentComponent
+    },
+    {
+        path:'order',
+        component:MyOrderComponent
     },
     {
         path:'login',

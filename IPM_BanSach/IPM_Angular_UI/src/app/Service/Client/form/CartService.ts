@@ -51,7 +51,7 @@ export class CartService {
         const cartData = this.getCart()
         if (cartData !== null) {
             var cart = JSON.parse(cartData);
-            const index = cart.findIndex((product: any) => product.sanpId === id);
+            const index = cart.findIndex((product: any) => product.sanp_id === id);
             if (index >= 0) {
                 cart.splice(index, 1);
             }

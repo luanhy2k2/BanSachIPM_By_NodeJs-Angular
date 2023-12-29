@@ -1,0 +1,77 @@
+<div class='main'>
+    <div style="padding-left: 2%;" class='row '>
+        <div  *ngFor="let x of order; let i = index" class='contents card shadow'>
+            <!-- <div  class='content'>
+                <div class='tabcontent'>
+                    <div class='title'>
+                        <i class='fas fas fa-boxes'></i> Thông tin khách hàng
+                        <hr />
+                    </div>
+                    <div style="margin-left: -7%;" class='modal-body'>
+                        <div class='col-12 col-s-12 padding-box'>
+                            <label for='txtright'>Tên khách hàng: </label>
+                            <span> &nbsp; khachhang.tenKhachHang </span>
+                        </div>
+                        <div class='col-12 col-s-12 padding-box'>
+                            <label for='txtright'>Địa chỉ: </label>
+                            <span>&nbsp; khachhang.diaChi</span>
+                        </div>
+                        <div class='col-12 col-s-12 padding-box'>
+                            <label for='txtright'>Số điện thoại: </label>
+                            <span> &nbsp; khachhang.sdt</span>
+                        </div>
+                        <div class='col-12 col-s-12 padding-box'>
+                            <label for='txtright'>Email: </label>
+                            <span> &nbsp; khachhang.email</span>
+                        </div>
+                         <div class='col-12 col-s-12 padding-box'>
+                            <button type='submit'>Xác nhận thanh toán</button>
+                        </div> 
+                    </div>
+                </div>
+            </div> -->
+            <div style='margin-left: 30px' class='content'>
+                <div class='tabcontent'>
+                    <div class='title'>
+                        <i class='fas fas fa-boxes'></i> Đơn hàng - {{x[i].trangThai}}
+                     
+                        <hr />
+                    </div>
+                    <div class='row'>
+                        <div style="padding-bottom: 10px;" class='padding-box'>
+                            <table class="table">
+                              
+                                <tbody>
+                                    
+                                   <tr *ngFor="let detail of order[i]">
+                                    <td style="width: 30px;"> <img src="./assets/img/book/{{detail.image}}"> </td>
+                                    <td style="width: 60%;"> <span style="font-size: larger; font-weight: bolder;"> Sách - {{detail.sanp_name}} </span>
+                                        <br>
+                                        Số lượng: {{detail.soLuong}}
+                                    </td>
+                                    <td> <span style="font-size: larger; font-weight:100;">| Giá: {{detail.gia}}</span> </td>
+                                    
+                                    
+                                   </tr>
+                                </tbody>
+                               
+                            </table>
+                            <ng-container *ngIf="x[i].trangThaiThanhToan === 'Chưa thanh toán'; else daThanhToanBlock">
+                                <!-- Hiển thị nút Xác nhận thanh toán nếu chưa thanh toán -->
+                                <button *ngIf="x[i].trangThaiGiaoHang == 'Giao hàng thành công'; else chuaGiaoHang " (click)="completeOrder(x[i].maDonHang)" style="margin-left: 67%; width: 13%;">Xác nhận thanh toán</button>
+                              </ng-container>
+                              <!-- Hiển thị thông báo "Đã thanh toán" nếu đã thanh toán -->
+                              <ng-template #daThanhToanBlock>
+                                <p>Đã thanh toán</p>
+                              </ng-template>
+                              <ng-template #chuaGiaoHang>
+                                <p>{{x[i].trangThaiGiaoHang}}</p>
+                              </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

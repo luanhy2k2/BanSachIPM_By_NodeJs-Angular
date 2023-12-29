@@ -13,6 +13,7 @@ import { AuthorComponent } from "./author/author.component";
 import { AuthorEditComponent } from "./author/author-edit/author-edit.component";
 import { CompanyComponent } from "./company/company.component";
 import { CompanyEditComponent } from "./Company/company-edit/company-edit.component";
+import { WareHouseComponent } from "./ware-house/ware-house.component";
 
 const routes: Routes = [
     {
@@ -23,6 +24,11 @@ const routes: Routes = [
     {
         path: 'company',
         component:CompanyComponent
+        
+    },
+    {
+        path: 'wareHouse',
+        component:WareHouseComponent
         
     },
     {

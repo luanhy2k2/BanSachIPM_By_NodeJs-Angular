@@ -13,14 +13,26 @@ export class ProductDetailService{
     getProductById(id:any):Observable<productDetail>{
         return this.httpClient.get<productDetail>(`http://localhost:3000/api/home/getspbyid/${id}`)
     }
+    getComment(id:any):Observable<any[]>{
+        return this.httpClient.get<any[]>(`http://localhost:3000/api/productDetail/getComment/${id}`)
+    }
+    getReplyComment(id:any):Observable<any[]>{
+        return this.httpClient.get<any[]>(`http://localhost:3000/api/productDetail/getReplyComment/${id}`)
+    }
+    addComment(comment:any){
+        return this.httpClient.post(`http://localhost:3000/api/productDetail/addComment`, comment);
+    }
+    addReplyComment(comment:any){
+        return this.httpClient.post(`http://localhost:3000/api/productDetail/addReplyComment`, comment);
+    }
     getProductSameAuthor(id:any):Observable<product[]>{
         return this.httpClient.get<product[]>(`http://localhost:3000/api/home/getbytg/${id}/4`)
     }
-    getCommentProduct(id:any):Observable<commentProduct[]>{
-        return this.httpClient.get<commentProduct[]>(`https://localhost:44301/api/productDetail/getCommentBySanpId/${id}`)
+    getCommentProduct(id:any):Observable<any>{
+        return this.httpClient.get<any>(`http://localhost:3000/api/productDetail/getComment/${id}`)
     }
     addCommentProduct(comment:any){
-        return this.httpClient.post(`https://localhost:44301/api/productDetail/addComment`, comment)
+        return this.httpClient.post(`http://localhost:3000/api/productDetail/addComment`, comment)
     }
     
 }

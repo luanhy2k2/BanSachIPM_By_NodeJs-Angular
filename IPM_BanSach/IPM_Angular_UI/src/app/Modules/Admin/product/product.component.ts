@@ -71,20 +71,40 @@ export class ProductComponent {
       this.author = data;
     });
   }
+  editproduct() {
+    if(!this.selectedFile){
+      this.productService.editproduct(this.requestData).subscribe(response=>{
+        alert("Sửa sản phẩm thành công");
+        this.getproduct();
+      })
+    }
+    else{
+      this.user.uploadFile(this.selectedFile).subscribe(
+        response => {
+          console.log(response);
+          this.requestData.image = response.filename.originalname;
+          this.productService.editproduct(this.requestData).subscribe(response=>{
+            alert("Sửa sản phẩm thành công");
+            this.getproduct();
+          })
+        },
+      );
+    }
+     
+    
+   }
   getproductByName(){
     this.productService.getBrandbyName(this.name).subscribe(data =>{
       this.product = data;
     });
   }
   openModel(id:number) {
-    const modelDiv = document.getElementById('myModal');
-    if(modelDiv!= null) {
-      modelDiv.style.display = 'block';
+   
       this.productService.getProductById(id).subscribe(res=>{
-        this.productById = res;
+        this.requestData = res;
       })
     } 
-  }
+  
 
   CloseModel() {
     const modelDiv = document.getElementById('myModal');

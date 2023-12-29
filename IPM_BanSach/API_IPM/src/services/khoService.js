@@ -1,5 +1,5 @@
 
-const khoRepository = require("../repositories/khoRepository");
+const khoRepository = require("../repositories/admin/khoRepository");
 const KhoService = {
     GetAllKho: (callback) => {
         khoRepository.GetAllKho((err, results) => {
@@ -8,6 +8,11 @@ const KhoService = {
     },
     GetKhoById: (id, callback) => {
         khoRepository.GetKhoById(id, (err, results) => {
+            callback(err, results);
+        });
+    },
+    GetKho: (id, pageSize,pageIndex, callback) => {
+        khoRepository.getKho(id, pageSize,pageIndex, (err, results) => {
             callback(err, results);
         });
     }

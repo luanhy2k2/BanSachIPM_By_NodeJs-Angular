@@ -1,4 +1,4 @@
-const sanphamRepository = require('../repositories/sanphamRepository')
+const sanphamRepository = require('../repositories/admin/sanphamRepository')
 const SanphamService = {
     GetSanphamById: (id, callback) => {
         sanphamRepository.GetSanphamById(id, (err, results) => {

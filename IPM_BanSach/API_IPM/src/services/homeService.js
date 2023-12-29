@@ -1,4 +1,4 @@
-const HomeRepository = require("../repositories/HomeRepository");
+const HomeRepository = require("../repositories/client/HomeRepository");
 
 const HomeService = {
     GetSanphamById(id, callback) {
@@ -41,7 +41,11 @@ const HomeService = {
             callback(err, results);
         });
     },
-
+    GetOrderDetailBySdt(sdt, callback) {
+        HomeRepository.GetOrderDetailBySdt(sdt, (err, results) => {
+            callback(err, results);
+        });
+    },
     GetSanphamByNsx(id, callback) {
         HomeRepository.GetSanphamByNsx(id, (err, results) => {
             callback(err, results);

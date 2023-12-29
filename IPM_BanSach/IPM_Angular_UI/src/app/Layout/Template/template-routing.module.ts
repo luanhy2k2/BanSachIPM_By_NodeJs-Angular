@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientTemplateComponent } from './client-template/client-template.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
+import { AdminGuard } from 'src/app/Service/guard.service';
 
 
 const routes: Routes = [
@@ -29,13 +30,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../Modules/Admin/admin.module').then(
             (x) => x.AdminModule
-          ),
+          ), canActivate: [AdminGuard]
       },
       
     ],
   },
-  
-  
 ];
 
 @NgModule({

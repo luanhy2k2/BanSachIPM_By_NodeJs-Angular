@@ -1,4 +1,4 @@
-const myRepository = require('../repositories/loaispRepository');
+const myRepository = require('../repositories/admin/loaispRepository');
 const LoaiSpService = {
     GetAllLoaiSp: (callback) => {
         myRepository.getAllData((err, results) => {

@@ -1,5 +1,5 @@
 
-const donhangRepository = require("../repositories/donhangRepository");
+const donhangRepository = require("../repositories/admin/donhangRepository");
 const DonHangService = {
     GetDonHangById: (id, callback) => {
         donhangRepository.GetDonHangById(id, (err, results) => {
@@ -22,7 +22,12 @@ const DonHangService = {
         });
     },
     UpdateOrderStatus: (id, callback) => {
-        donhangRepository.UpdateOrderStatus(id, (err, results) => {
+        donhangRepository.UpdateOrderSatus(id, (err, results) => {
+            callback(err, results);
+        });
+    },
+    UpdateOrderDelivery: (id, st, callback) => {
+        donhangRepository.updateOrderDelivery(id,st, (err, results) => {
             callback(err, results);
         });
     },

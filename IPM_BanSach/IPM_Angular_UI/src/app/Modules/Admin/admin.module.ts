@@ -18,6 +18,8 @@ import { CompanyComponent } from './company/company.component';
 import { CompanyEditComponent } from './Company/company-edit/company-edit.component';
 import { PartialsModule } from "src/app/Layout/Partials/Partials.module";
 import { HttpClientModule } from "@angular/common/http";
+import { CKEditorModule } from "ckeditor4-angular";
+import { WareHouseComponent } from './ware-house/ware-house.component';
 
 
 
@@ -37,13 +39,15 @@ import { HttpClientModule } from "@angular/common/http";
     CompanyComponent,
    
     CompanyEditComponent,
+         WareHouseComponent,
    
   ],
     imports:[
         FormsModule,
         CommonModule,
         AdminRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        CKEditorModule
     ]
 })
 export class AdminModule{}

@@ -16,6 +16,7 @@
                 <td class="name">{{item.sanp_name}} </td>
                 <td class="quantity">{{item.quantity}}</td>
                 <td class="price">{{item.gia * item.quantity}}</td>
+                <td class="price"><i (click)="removeProduct(item.sanp_id)" class="fa fa-trash"></i></td>
             </tr>
 
         </tbody>

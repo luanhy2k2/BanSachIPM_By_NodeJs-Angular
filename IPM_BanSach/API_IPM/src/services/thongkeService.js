@@ -1,4 +1,4 @@
-const thongKeRepository = require('../repositories/thongkeRepository')
+const thongKeRepository = require('../repositories/admin/thongkeRepository')
 const ThongKeService = {
     ThongKeDoanhThuHomNay: (callback) => {
         thongKeRepository.ThongKeDoanhThuHomNay((err, results) => {

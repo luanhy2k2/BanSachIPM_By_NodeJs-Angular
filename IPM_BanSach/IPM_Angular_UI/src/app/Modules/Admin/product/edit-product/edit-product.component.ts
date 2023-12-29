@@ -16,7 +16,6 @@ export class EditProductComponent {
   author:any[] = [];
  product: any;
  selectedFile!: File;
- 
  ngOnInit() {
    // Sử dụng ActivatedRoute để theo dõi thay đổi params
    this.route.params.subscribe(params => {
@@ -46,7 +45,6 @@ export class EditProductComponent {
   });
 }
  loadData(paramValue: string) {
-   // Sử dụng DataService hoặc HttpClient để gọi API và lấy dữ liệu
    this.productServie.getProductById(paramValue).subscribe(data => {
      this.product = data;
    });

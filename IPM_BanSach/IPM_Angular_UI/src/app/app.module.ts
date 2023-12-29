@@ -10,6 +10,7 @@ import { ClientModule } from './Modules/client/client.module';
 import { ClientRoutingModule } from './Modules/client/client-routing.module';
 import { AdminModule } from './Modules/Admin/admin.module';
 import { AdminRoutingModule } from './Modules/Admin/admin-routing.module';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdminRoutingModule } from './Modules/Admin/admin-routing.module';
     ClientModule,
     ClientRoutingModule,
     AdminModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
