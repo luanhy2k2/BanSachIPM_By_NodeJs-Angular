@@ -10,6 +10,16 @@ const productDetailService = {
             callback(err, results)
         })
     },
+    GetSanphamById(id, callback) {
+        productDetailRepository.GetSanphamById(id, (err, results) => {
+            callback(err, results);
+        });
+    },
+    GetSanphamByTg(id, sl, callback) {
+        productDetailRepository.GetSanphamByTg(id, sl, (err, results) => {
+            callback(err, results);
+        });
+    },
     getReplyComment(id, callback){
         productDetailRepository.getReplyComment(id, (err, results) =>{
             callback(err, results)

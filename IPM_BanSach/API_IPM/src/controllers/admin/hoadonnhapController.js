@@ -1,4 +1,4 @@
-const hoadonnhapService = require("../../services/hoadonnhapService");
+const hoadonnhapService = require("../../services/admin/hoadonnhapService");
 
 const HoaDonNhapController = {
   GetAllHoaDonNhap: (req, res) => {

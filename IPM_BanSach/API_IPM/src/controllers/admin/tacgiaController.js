@@ -1,4 +1,4 @@
-const tacgiaService = require("../../services/tacgiaService");
+const tacgiaService = require("../../services/admin/tacgiaService");
 
 const TacgiaController = {
     

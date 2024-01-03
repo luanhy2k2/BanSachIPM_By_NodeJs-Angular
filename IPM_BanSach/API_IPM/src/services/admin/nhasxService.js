@@ -1,5 +1,5 @@
 
-const nhasxRepository = require("../repositories/admin/nhasxRepository");
+const nhasxRepository = require("../../repositories/admin/nhasxRepository");
 
 const NhasxService = {
     GetNhasxById: (id, callback) => {

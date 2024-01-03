@@ -6,6 +6,26 @@ const productDetailRepository = {
             callback(err, results)
         })
     },
+    GetSanphamById: function ( id, callback) {
+        const sql = 'CALL GetSanphamById(?)';
+        db.query(sql, [id], function (error, [results]) {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, results[0]);
+            }
+        });
+    },
+    GetSanphamByTg: function ( id, sl, callback) {
+        const sql = 'CALL GetSanphamByTg(?, ?)';
+        db.query(sql, [id, sl], function (error, [results]) {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, results);
+            }
+        });
+    },
     getReplyComment(id, callback){
         const sql = 'Call getReplyComment(?)';
         db.query(sql, [id], (err, [results]) =>{

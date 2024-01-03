@@ -20,6 +20,9 @@ import { PartialsModule } from "src/app/Layout/Partials/Partials.module";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from "ckeditor4-angular";
 import { WareHouseComponent } from './ware-house/ware-house.component';
+import { ExportInvoiceComponent } from './export-invoice/export-invoice.component';
+
+import { InvoiceComponent } from './export-invoice/invoice/invoice.component';
 
 
 
@@ -40,14 +43,19 @@ import { WareHouseComponent } from './ware-house/ware-house.component';
    
     CompanyEditComponent,
          WareHouseComponent,
-   
+         ExportInvoiceComponent,
+        
+         InvoiceComponent,
+ 
   ],
     imports:[
         FormsModule,
         CommonModule,
         AdminRoutingModule,
         HttpClientModule,
-        CKEditorModule
+        CKEditorModule,
+        
+        
     ]
 })
 export class AdminModule{}

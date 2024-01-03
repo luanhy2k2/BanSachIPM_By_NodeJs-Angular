@@ -1,4 +1,4 @@
-const myRepository = require('../repositories/admin/tacgiaRepository')
+const myRepository = require('../../repositories/admin/tacgiaRepository')
 const TacgiaService = {
     GetTacgiaById: (id, callback) => {
         myRepository.GetTacgiaById(id, (err, results) => {

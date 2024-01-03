@@ -20,17 +20,14 @@ export class OrderDetailComponent {
     });
    }
   getOrderDetail(id:number){
-
     this.orderService.getOrderDetailById(id).subscribe((data) => {
       this.orderDetail = data;
     });
   };
   getOrderById(id:number){
-    
     this.orderService.getOrderById(id).subscribe((data) => {
       this.order = data;
+      console.log(this.order)
     });
   }
-  
- 
 }

@@ -1,4 +1,4 @@
-const hoadonbanService = require("../../services/hoadonbanService");
+const hoadonbanService = require("../../services/admin/hoadonbanService");
 
 const HoaDonBanController = {
   GetAllHoaDonBan: (req, res) => {

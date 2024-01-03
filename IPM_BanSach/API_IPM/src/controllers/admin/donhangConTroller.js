@@ -1,4 +1,4 @@
-const donhangService = require("../../services/donhangService");
+const donhangService = require("../../services/admin/donhangService");
 
 const DonHangController = {
   GetAllDonHang: (req, res) => {

@@ -36,12 +36,7 @@ export class MyOrderComponent {
     this.service.completeOrder(id);
     this.orderDetails();
   }
-  // conFirmOrder(id:number){
-  //   this.service.confirmOrder(id).subscribe(res=>{
-  //     alert("Thanh toán thành công!");
-  //     this.orderDetails();
-  //   })
-  // }
+  
   groupByOrderId(orderDetails: any[]) {
     const groupedDetails: { [key: string]: any[] } = {};
 

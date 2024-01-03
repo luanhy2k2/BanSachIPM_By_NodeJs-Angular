@@ -21,5 +21,14 @@ export class InvoiceService{
     getImportInvoiceDetailById(id: any):Observable<any[]>{
         return this.http.get<any[]>(`${url}/api/hoadonnhap/getchitietbyid/${id}`);
     }
+    getExportInvoice(pageInDex:any):Observable<any>{
+        return this.http.get<any>(`${url}/api/hoadonban/getall/${pageInDex}/8`);
+    }
+    getExportInvoiceById(id:any):Observable<any>{
+        return this.http.get<any>(`${url}/api/hoadonban/gethoadonbyid/${id}`);
+    }
+    getExportInvoiceDetailById(id: any):Observable<any[]>{
+        return this.http.get<any[]>(`${url}/api/hoadonban/getchitietbyid/${id}`);
+    }
     
 }

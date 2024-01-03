@@ -1,5 +1,5 @@
 
-const hoadonnhapRepository = require("../repositories/admin/hoadonnhapRepository");
+const hoadonnhapRepository = require("../../repositories/admin/hoadonnhapRepository");
 const HoaDonNhapService = {
     GetChiTietHoaDonNhapById: (id, callback) => {
         hoadonnhapRepository.GetChiTietHoaDonNhapById(id, (err, results) => {

@@ -1,11 +1,7 @@
-const HomeRepository = require("../repositories/client/HomeRepository");
+const HomeRepository = require("../../repositories/client/HomeRepository");
 
 const HomeService = {
-    GetSanphamById(id, callback) {
-        HomeRepository.GetSanphamById(id, (err, results) => {
-            callback(err, results);
-        });
-    },
+    
 
     ConfirmOrder(id, callback) {
         HomeRepository.confirmOrder(id, (err, results) => {
@@ -36,27 +32,14 @@ const HomeService = {
             callback(err, results);
         });
     },
-    GetOrderBySdt(sdt, callback) {
-        HomeRepository.GetOrderBySdt(sdt, (err, results) => {
-            callback(err, results);
-        });
-    },
-    GetOrderDetailBySdt(sdt, callback) {
-        HomeRepository.GetOrderDetailBySdt(sdt, (err, results) => {
-            callback(err, results);
-        });
-    },
+    
     GetSanphamByNsx(id, callback) {
         HomeRepository.GetSanphamByNsx(id, (err, results) => {
             callback(err, results);
         });
     },
 
-    GetSanphamByTg(id, sl, callback) {
-        HomeRepository.GetSanphamByTg(id, sl, (err, results) => {
-            callback(err, results);
-        });
-    },
+    
 
     GetSanphamByLoai(id, callback) {
         HomeRepository.GetSanphamByLoai(id, (err, results) => {
@@ -82,11 +65,6 @@ const HomeService = {
         });
     },
 
-    CreateDonHang(khachhang, chitietdonhang, gia, callback) {
-        HomeRepository.CreateDonHang(khachhang, chitietdonhang, gia, (err, results) => {
-            callback(err, results);
-        });
-    },
 
     GetLoaiSp(callback) {
         HomeRepository.GetLoaiSp((err, results) => {

@@ -14,6 +14,8 @@ import { AuthorEditComponent } from "./author/author-edit/author-edit.component"
 import { CompanyComponent } from "./company/company.component";
 import { CompanyEditComponent } from "./Company/company-edit/company-edit.component";
 import { WareHouseComponent } from "./ware-house/ware-house.component";
+import { ExportInvoiceComponent } from "./export-invoice/export-invoice.component";
+import { InvoiceComponent } from "./export-invoice/invoice/invoice.component";
 
 const routes: Routes = [
     {
@@ -59,6 +61,21 @@ const routes: Routes = [
     {
         path: 'hoadonnhap',
         component:ImportInvoiceComponent
+        
+    },
+    {
+        path: 'invoice/:id',
+        component:InvoiceComponent
+        
+    },
+    {
+        path: 'invoice',
+        component:InvoiceComponent
+        
+    },
+    {
+        path: 'hoadonban',
+        component:ExportInvoiceComponent
         
     },
     {

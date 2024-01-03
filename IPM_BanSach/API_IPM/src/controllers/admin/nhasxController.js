@@ -1,4 +1,4 @@
-const nhasxService = require("../../services/nhasxService");
+const nhasxService = require("../../services/admin/nhasxService");
 
 const NhasxController = {
   GetAllNhasx: (req, res) => {

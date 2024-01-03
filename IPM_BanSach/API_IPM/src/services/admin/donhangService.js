@@ -1,5 +1,5 @@
 
-const donhangRepository = require("../repositories/admin/donhangRepository");
+const donhangRepository = require("../../repositories/admin/donhangRepository");
 const DonHangService = {
     GetDonHangById: (id, callback) => {
         donhangRepository.GetDonHangById(id, (err, results) => {

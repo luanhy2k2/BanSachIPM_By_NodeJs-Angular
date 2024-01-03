@@ -1,5 +1,5 @@
 
-const khoRepository = require("../repositories/admin/khoRepository");
+const khoRepository = require("../../repositories/admin/khoRepository");
 const KhoService = {
     GetAllKho: (callback) => {
         khoRepository.GetAllKho((err, results) => {

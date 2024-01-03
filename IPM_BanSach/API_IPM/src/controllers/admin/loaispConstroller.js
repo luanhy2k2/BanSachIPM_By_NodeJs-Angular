@@ -1,4 +1,4 @@
-const myService = require('../../services/loaispService');
+const myService = require('../../services/admin/loaispService');
 
 const LoaiSpController = {
     

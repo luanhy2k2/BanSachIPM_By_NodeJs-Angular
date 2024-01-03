@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { PaymentService } from 'src/app/Service/Client/form/PaymentService';
 import { orderService } from 'src/app/Service/admin/orderService';
 
 @Component({
@@ -8,7 +9,7 @@ import { orderService } from 'src/app/Service/admin/orderService';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent {
-  constructor(private orderService: orderService, private http: HttpClient) { }
+  constructor(private orderService: orderService, private paymentService:PaymentService, private http: HttpClient) { }
   order!: any[];
   total: number = 0;
   orderById!: any;
@@ -29,10 +30,9 @@ export class OrderComponent {
   }
 
   conFirmOrder(id: any) {
-    this.orderService.confirmOrder(id).subscribe(res => {
-      alert("Xác nhận thành công");
+    this.orderService.confirmOrder(id).subscribe(res=>{
       this.getOrder();
-    })
+    });
   }
   updateDelivery(id: number, st:number) {
     this.orderService.updateDelivery(id,st).subscribe(res => {
@@ -45,7 +45,16 @@ export class OrderComponent {
       this.conFirmOrder(x.maDonHang);
     }
   }
-
+  click(id:number) {
+    setTimeout(() => {
+      this.completeOrder(id);
+    }, 25920000); // 1 giờ = 60 phút * 60 giây * 1000 milliseconds
+    this.getOrder();
+  }
+  
+  completeOrder(id: number) {
+    this.paymentService.completeOrder(id);
+  }
   onChangeGiaoHang(x: any): void {
     if (x.trangThaiGiaoHang === "Chưa giao hàng") {
       this.updateDelivery(x.maDonHang, 0);
@@ -58,6 +67,7 @@ export class OrderComponent {
     }
     else if (x.trangThaiGiaoHang === "Giao hàng thành công") {
       this.updateDelivery(x.maDonHang, 3);
+      this.click(x.maDonHang);
     }
   }
 

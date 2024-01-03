@@ -45,6 +45,37 @@ const productDetailController = {
       }
     });
   }, 
+  GetSanphamByTg(req, res) {
+    const id = req.params.id;
+    const sl = req.params.sl;
+    productDetailService.GetSanphamByTg(id, sl, (err, data) => {
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return res.status(500).send('Database error');
+      }
+
+      if (data) {
+        res.json(data);
+      } else {
+        res.json({ message: 'Bản ghi không tồn tại' });
+      }
+    });
+  },
+  GetSanphamById(req, res) {
+    const id = req.params.id;
+    productDetailService.GetSanphamById(id, (err, data) => {
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return res.status(500).send('Database error');
+      }
+
+      if (data) {
+        res.json(data);
+      } else {
+        res.json({ message: 'Bản ghi không tồn tại' });
+      }
+    });
+  },
   addReplyComment(req, res) {
     const {id, content, us_id} = req.body;
     productDetailService.addReplyComment(id, content, us_id, (err, data) => {

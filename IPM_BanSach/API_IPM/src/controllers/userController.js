@@ -9,7 +9,6 @@ const UserController = {
           console.error('Error authenticating user: ' + err.stack);
           return res.status(500).json({ message: 'Authentication error' });
         }
-
         if (user) {
           const token = auth.generateToken(user); // Assuming generateToken is a function available in your code.
           user.token = token;

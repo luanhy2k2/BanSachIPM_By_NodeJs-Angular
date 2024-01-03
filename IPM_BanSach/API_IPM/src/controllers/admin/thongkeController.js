@@ -1,4 +1,4 @@
-const thongkeService = require("../../services/thongkeService");
+const thongkeService = require("../../services/admin/thongkeService");
 
 const ThongKeController = {
   ThongKeDoanhThuHomNay: (req, res) => {

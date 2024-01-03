@@ -16,26 +16,42 @@ export class ProductComponent {
   products!: any[]
   total!: number;
   loaisp!: loaisp[];
-
+  currentSort: string = 'default';
   ngOnInit(): void {
     this.loadData();
     this.service.getCategories().subscribe(res=>{
       this.loaisp = res;
     })
   }
-  
+  sortProducts() {
+    switch (this.currentSort) {
+      case 'highToLow':
+        this.products.sort((a, b) => b.gia - a.gia);
+        break;
+      case 'lowToHigh':
+        this.products.sort((a, b) => a.gia - b.gia);
+        break;
+      // Nếu có thêm loại sắp xếp khác, thêm vào đây
+      default:
+        // Mặc định là không sắp xếp
+        break;
+    }
+  }
 
   previousPage() {
-    this.pageInDex--
-    this.loadData()
+    this.pageInDex--;
+    this.loadData();
+    this.sortProducts();
   }
   nextPage() {
       this.pageInDex++;
-      this.loadData()
+      this.loadData();
+      this.sortProducts();
   }
   setCurrentPage(page: number) {
     this.pageInDex = page;
-    this.loadData()
+    this.loadData();
+    this.sortProducts();
   }
   loadData() {
     this.http.get<any>("http://localhost:3000/api/Home/productCount").subscribe(res => {

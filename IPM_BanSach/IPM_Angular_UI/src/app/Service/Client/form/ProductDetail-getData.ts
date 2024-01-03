@@ -11,7 +11,7 @@ import { productDetail } from "src/app/Models/productDetail.entity";
 export class ProductDetailService{
     constructor(private httpClient: HttpClient){}
     getProductById(id:any):Observable<productDetail>{
-        return this.httpClient.get<productDetail>(`http://localhost:3000/api/home/getspbyid/${id}`)
+        return this.httpClient.get<productDetail>(`http://localhost:3000/api/productDetail/getspbyid/${id}`)
     }
     getComment(id:any):Observable<any[]>{
         return this.httpClient.get<any[]>(`http://localhost:3000/api/productDetail/getComment/${id}`)
@@ -26,7 +26,7 @@ export class ProductDetailService{
         return this.httpClient.post(`http://localhost:3000/api/productDetail/addReplyComment`, comment);
     }
     getProductSameAuthor(id:any):Observable<product[]>{
-        return this.httpClient.get<product[]>(`http://localhost:3000/api/home/getbytg/${id}/4`)
+        return this.httpClient.get<product[]>(`http://localhost:3000/api/productDetail/getbytg/${id}/4`)
     }
     getCommentProduct(id:any):Observable<any>{
         return this.httpClient.get<any>(`http://localhost:3000/api/productDetail/getComment/${id}`)

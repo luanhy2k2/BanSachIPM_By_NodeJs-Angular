@@ -1,32 +1,8 @@
-const homeService = require("../../services/homeService");
+const homeService = require("../../services/client/homeService");
 const HomeController = {
-  GetSanphamById(req, res) {
-    const id = req.params.id;
-    homeService.GetSanphamById(id, (err, data) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
+  
 
-      if (data) {
-        res.json(data);
-      } else {
-        res.json({ message: 'Bản ghi không tồn tại' });
-      }
-    });
-  },
-
-  ConfirmOrder(req, res) {
-    const id = req.params.id;
-    homeService.ConfirmOrder(id, (err) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
-
-      res.json({ message: 'Hoàn thành đơn hàng', data: true });
-    });
-  },
+  
   GetKhachHangBySdt(req, res) {
     const sdt = req.params.sdt;
     homeService.GetKhachHangBySdt(sdt, (err, data) => {
@@ -90,36 +66,7 @@ const HomeController = {
     });
   },
 
-  GetOrderBySdt(req, res) {
-    const sdt = req.params.sdt;
-    homeService.GetOrderBySdt(sdt, (err, data) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
-
-      if (data) {
-        res.json(data);
-      } else {
-        res.json({ message: 'Bản ghi không tồn tại' });
-      }
-    });
-  },
-  GetOrderDetailBySdt(req, res) {
-    const sdt = req.params.sdt;
-    homeService.GetOrderDetailBySdt(sdt, (err, data) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
-
-      if (data) {
-        res.json(data);
-      } else {
-        res.json({ message: 'Bản ghi không tồn tại' });
-      }
-    });
-  },
+  
   GetSanphamByLoai(req, res) {
     const id = req.params.id;
     homeService.GetSanphamByLoai(id, (err, data) => {
@@ -135,22 +82,8 @@ const HomeController = {
       }
     });
   },
-  GetSanphamByTg(req, res) {
-    const id = req.params.id;
-    const sl = req.params.sl;
-    homeService.GetSanphamByTg(id, sl, (err, data) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
-
-      if (data) {
-        res.json(data);
-      } else {
-        res.json({ message: 'Bản ghi không tồn tại' });
-      }
-    });
-  },GetSanphamBanChay(req, res) {
+  
+  GetSanphamBanChay(req, res) {
     const sl = req.params.sl;
     homeService.GetSanPhamBanChay(sl, (err, data) => {
       if (err) {
@@ -244,20 +177,7 @@ const HomeController = {
   },
   // ... (similar modifications for other functions)
 
-  CreateDonHang(req, res) {
-    const khachhang = req.body.khachhang;
-    const listchitiet = req.body.listchitiet;
-    const gia = req.body.gia;
-
-    homeService.CreateDonHang(khachhang, listchitiet, gia, (err) => {
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return res.status(500).send('Database error');
-      }
-
-      res.json({ message: 'Thêm thành công', data: true });
-    });
-  }
+  
 }
 
 module.exports = HomeController;

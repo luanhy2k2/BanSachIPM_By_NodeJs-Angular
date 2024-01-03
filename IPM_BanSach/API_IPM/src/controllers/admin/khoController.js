@@ -1,4 +1,4 @@
-const khoService = require("../../services/khoService");
+const khoService = require("../../services/admin/khoService");
 
 const KhoController = {
   GetAllKho: (req, res) => {

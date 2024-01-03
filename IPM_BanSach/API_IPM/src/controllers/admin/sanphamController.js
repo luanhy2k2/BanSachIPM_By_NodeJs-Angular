@@ -1,4 +1,4 @@
-const sanphamService = require("../../services/sanphamService");
+const sanphamService = require("../../services/admin/sanphamService");
 const SanphamController = {
   GetAllSanpham: (req, res) => {
     sanphamService.GetAllSanpham((err, data) => {
