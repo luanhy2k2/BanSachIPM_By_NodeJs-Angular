@@ -8,6 +8,5 @@ DonHangRouter.get('/getchitietbyid/:id', DonHangController.GetChiTietDonHangById
 DonHangRouter.get('/getall/:pageIndex/:pageSize', DonHangController.GetAllDonHang);
 DonHangRouter.post('/updatestatus/:id', DonHangController.UpdateOrderStatus);
 DonHangRouter.post('/updateDelivery/:id/:st', DonHangController.UpdateOrderDelivery);
-DonHangRouter.post('/updatequantity/:id/:sl', DonHangController.UpdateQuantity);
-
+DonHangRouter.post('/confirm-order/:id', DonHangController.confirmOrderController);
 module.exports = DonHangRouter;

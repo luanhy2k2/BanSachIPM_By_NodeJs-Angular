@@ -1,5 +1,6 @@
 
 const donhangRepository = require("../../repositories/admin/donhangRepository");
+const db = require('../../config/db');
 const DonHangService = {
     GetDonHangById: (id, callback) => {
         donhangRepository.GetDonHangById(id, (err, results) => {
@@ -31,11 +32,42 @@ const DonHangService = {
             callback(err, results);
         });
     },
-    UpdateQuantity: (id, sl, callback) => {
-        donhangRepository.UpdateQuantity(id, sl, (err, results) => {
-            callback(err, results);
+   
+    confirmOrder(orderId, callback) {
+        db.beginTransaction((err) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            donhangRepository.getOrderDetails(orderId, (err, orderDetails) => {
+                if (err) {
+                    db.rollback(() => {
+                        callback(err);
+                    });
+                } else {
+                    donhangRepository.updateProductStock(orderDetails, (err) => {
+                        if (err) {
+                            db.rollback(() => {
+                                callback(err);
+                            });
+                        } else {
+                            db.commit((err) => {
+                                if (err) {
+                                    db.rollback(() => {
+                                        callback(err);
+                                    });
+                                } else {
+                                    callback(null);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
         });
     }
+    
+    
 };
 
 module.exports = DonHangService;

@@ -103,21 +103,17 @@ const DonHangController = {
     });
   },
 
-  UpdateQuantity: (req, res) => {
-    const id = req.params.id;
-    const sl = req.params.sl;
-    donhangService.UpdateQuantity(id, sl, (err) => {
-      try {
-        if (err) {
-          console.error('Error updating Quantity: ' + err.stack);
-          return res.status(500).json({ message: 'Update error' });
-        }
-        res.json({ message: 'Update thành công', data: true });
-      } catch (error) {
-        res.json({ message: error.message });
+  confirmOrderController(req, res) {
+    const orderId = req.params.id;
+    donhangService.confirmOrder(orderId, (err) => {
+      if (err) {
+        console.error('Error confirming order: ', err);
+        res.status(500).json({ success: false, message: 'Error confirming order' });
+      } else {
+        res.json({ success: true, message: 'Order confirmed successfully' });
       }
     });
-  },
+  }
 };
 
 module.exports = DonHangController;

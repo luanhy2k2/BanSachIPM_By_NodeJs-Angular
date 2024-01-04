@@ -13,6 +13,9 @@ export class UserService {
     login(username: string, password: string): Observable<any> {
         return this.httpClient.post<any>('http://localhost:3000/api/user/login', { username, password, })
     }
+    singUp(user:any) {
+        return this.httpClient.post<any>('http://localhost:3000/api/user/createUser', user)
+    }
     uploadFile(file: File): Observable<any> {
         const formData: FormData = new FormData();
         formData.append('file', file);

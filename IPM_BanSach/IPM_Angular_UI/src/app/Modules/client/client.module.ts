@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { CKEditorModule } from "ckeditor4-angular";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     declarations:[
@@ -25,7 +26,8 @@ import { CKEditorModule } from "ckeditor4-angular";
     ProductDetailComponent,
     ProductSearchComponent,
     LoginComponent,
-    MyOrderComponent
+    MyOrderComponent,
+    RegisterComponent
   ],
     imports:[
       ClientRoutingModule,

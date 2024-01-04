@@ -15,7 +15,7 @@
         <ng-template #showLoginSignup>
             <!-- Hiển thị khi user là null -->
             <div class="signup">
-                <p style="margin-left: 20px">Đăng ký</p>
+                <p [routerLink]="['/client/register']" style="margin-left: 20px">Đăng ký</p>
             </div>
             <div class="login">
                 <p [routerLink]="['/client/login']" >Đăng nhập</p>

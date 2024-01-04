@@ -9,7 +9,7 @@ import { orderService } from 'src/app/Service/admin/orderService';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent {
-  constructor(private orderService: orderService, private paymentService:PaymentService, private http: HttpClient) { }
+  constructor(private orderService: orderService, private paymentService: PaymentService, private http: HttpClient) { }
   order!: any[];
   total: number = 0;
   orderById!: any;
@@ -28,14 +28,22 @@ export class OrderComponent {
       this.order = data;
     });
   }
-
   conFirmOrder(id: any) {
-    this.orderService.confirmOrders(id).subscribe(res=>{
-      
-    });
+    this.orderService.confirmOrder(id).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.success == true) {
+          this.orderService.updateStatus(id).subscribe(res=>{
+            alert("Xác thực thành công!");
+          })
+        }
+      },
+      (error) => {
+        alert("Lỗi xác thực!")
+      })
   }
-  updateDelivery(id: number, st:number) {
-    this.orderService.updateDelivery(id,st).subscribe(res => {
+  updateDelivery(id: number, st: number) {
+    this.orderService.updateDelivery(id, st).subscribe(res => {
       alert("Chỉnh sửa trạng thái thành công!");
       this.getOrder();
     })
@@ -45,13 +53,13 @@ export class OrderComponent {
       this.conFirmOrder(x.maDonHang);
     }
   }
-  click(id:number) {
+  click(id: number) {
     setTimeout(() => {
       this.completeOrder(id);
     }, 25920000); // 1 giờ = 60 phút * 60 giây * 1000 milliseconds
     this.getOrder();
   }
-  
+
   completeOrder(id: number) {
     this.paymentService.completeOrder(id);
   }
@@ -70,9 +78,6 @@ export class OrderComponent {
       this.click(x.maDonHang);
     }
   }
-
-
-
   nextPage() {
     this.pageIndex++;
     this.getOrder();
