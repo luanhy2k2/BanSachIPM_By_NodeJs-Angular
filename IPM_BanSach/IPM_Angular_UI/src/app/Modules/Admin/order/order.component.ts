@@ -30,8 +30,8 @@ export class OrderComponent {
   }
 
   conFirmOrder(id: any) {
-    this.orderService.confirmOrder(id).subscribe(res=>{
-      this.getOrder();
+    this.orderService.confirmOrders(id).subscribe(res=>{
+      
     });
   }
   updateDelivery(id: number, st:number) {

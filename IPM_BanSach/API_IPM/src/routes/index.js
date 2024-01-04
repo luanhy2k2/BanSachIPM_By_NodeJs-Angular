@@ -14,8 +14,10 @@ const tacgiaRoute = require('./admin/tacgiaRouter');
 const thongkeRoute = require('./admin/thongkeRouter');
 const productDetailRoute = require('./client/productDetailRouter')
 const payMentRoute = require('./client/payMentRouter')
+const confirm = require('./admin/donhang');
 // Định nghĩa route và gọi hàm từ controller
 router.use('/loaisp', loaispRoute);
+router.use('/dh', confirm);
 router.use('/comment', loaispRoute);
 router.use('/home', homeRoute);
 router.use('/home', payMentRoute);
